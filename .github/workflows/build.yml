@@ -44,7 +44,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Prepare web assets
+      - name: Prepare web folder
         run: |
           mkdir -p www
           cp index.html www/index.html
@@ -64,17 +64,10 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
 
-      - name: Prepare APK
+      - name: Rename APK
         run: |
           mkdir -p release
-
-          if [[ "${GITHUB_REF}" == refs/tags/* ]]; then
-            APK_NAME="Electrical-Lab-${GITHUB_REF_NAME}.apk"
-          else
-            APK_NAME="Electrical-Lab-latest.apk"
-          fi
-
-          cp android/app/build/outputs/apk/debug/app-debug.apk "release/${APK_NAME}"
+          cp android/app/build/outputs/apk/debug/app-debug.apk release/Electrical-Lab-${{ github.ref_name }}.apk
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
@@ -82,55 +75,3 @@ jobs:
           name: Electrical-Lab-APK
           path: release/*.apk
           if-no-files-found: error
-
-      - name: Update Latest Release
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: latest
-          name: Electrical Lab - Latest Build
-          body: |
-            ## Electrical Lab - Latest APK
-
-            This release is automatically updated after every successful build.
-
-            Commit: `${{ github.sha }}`
-
-            Download the APK below and install it on your Android device.
-          files: release/*.apk
-          prerelease: true
-          make_latest: true
-          overwrite_files: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Versioned Release
-        if: startsWith(github.ref, 'refs/tags/v')
-        uses: softprops/action-gh-release@v2
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: Electrical Lab ${{ github.ref_name }}
-          body: |
-            ## ⚡ Electrical Engineering Lab ${{ github.ref_name }}
-
-            **By Lazy Owl 🦉**
-
-            ### Features
-            - Motor, VFD, gearbox, blower, and conveyor calculators
-            - Star-delta simulation
-            - Ladder logic
-            - Cable and motor wire datasheets
-            - Modbus TCP and Profibus
-            - Dark and light mode
-
-            ### Installation
-            1. Download the APK below.
-            2. Enable installation from unknown sources.
-            3. Install the APK on your Android device.
-          files: release/*.apk
-          draft: false
-          prerelease: false
-          generate_release_notes: true
-          overwrite_files: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
