@@ -25,14 +25,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: npm
 
       - name: Setup Java JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
-          cache: gradle
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
@@ -46,7 +44,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # capacitor.config.json uses webDir: "www"
       - name: Prepare web assets
         run: |
           mkdir -p www
@@ -86,7 +83,6 @@ jobs:
           path: release/*.apk
           if-no-files-found: error
 
-      # Updates one permanent release called "latest" for main/master pushes
       - name: Update Latest Release
         if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
         uses: softprops/action-gh-release@v2
@@ -108,7 +104,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # Creates a separate release for tags such as v1.0.0
       - name: Create Versioned Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
@@ -121,7 +116,6 @@ jobs:
             **By Lazy Owl 🦉**
 
             ### Features
-
             - Motor, VFD, gearbox, blower, and conveyor calculators
             - Star-delta simulation
             - Ladder logic
@@ -130,7 +124,6 @@ jobs:
             - Dark and light mode
 
             ### Installation
-
             1. Download the APK below.
             2. Enable installation from unknown sources.
             3. Install the APK on your Android device.
