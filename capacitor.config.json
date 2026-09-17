@@ -1,0 +1,11 @@
+{
+  "appId": "com.lazyowl.electrical",
+  "appName": "Electrical Lab",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false
+  }
+}
