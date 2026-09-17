@@ -3459,6 +3459,164 @@
   // ============================================================
   renderInstruments();
   renderBearings();
+   // ============================================================
+  // ========== LADDER LOGIC · STAR-DELTA SIMULATION ==========
+  // ============================================================
+  const ladder = {
+    M: false,        // Motor relay
+    K1: false,       // Main contactor
+    K2: false,       // Star contactor
+    K3: false,       // Delta contactor
+    direction: 'fwd', // 'fwd' or 'rev'
+    timer: 0,
+    timerSet: 5.0,
+    running: false,
+    startTime: 0,
+    interval: null,
+    rpm: 0,
+    current: 0,
+    voltage: 415,
+    power: 0,
+    efficiency: 0
+  };
+
+  function updateLadderUI() {
+    // Update indicators
+    const indM = $('indM'), indK1 = $('indK1'), indK2 = $('indK2'), indK3 = $('indK3');
+    if (!indM) return;
+    
+    indM.textContent = ladder.M ? 'ON' : 'OFF';
+    indM.style.color = ladder.M ? '#22c55e' : '#8892b0';
+    indK1.textContent = ladder.K1 ? 'ON' : 'OFF';
+    indK1.style.color = ladder.K1 ? '#22c55e' : '#8892b0';
+    indK2.textContent = ladder.K2 ? 'ON' : 'OFF';
+    indK2.style.color = ladder.K2 ? '#22c55e' : '#8892b0';
+    indK3.textContent = ladder.K3 ? 'ON' : 'OFF';
+    indK3.style.color = ladder.K3 ? '#22c55e' : '#8892b0';
+    
+    // Highlight coils
+    ['ladM', 'ladK1', 'ladK2', 'ladK3'].forEach((id, i) => {
+      const el = $(id);
+      if (!el) return;
+      const on = [ladder.M, ladder.K1, ladder.K2, ladder.K3][i];
+      el.setAttribute('stroke', on ? '#22c55e' : '#facc15');
+      el.setAttribute('stroke-width', on ? '3' : '2');
+    });
+    
+    // Timer
+    const timerEl = $('ladTimer');
+    if (timerEl) timerEl.textContent = ladder.timer.toFixed(1) + 's';
+    
+    // Motor status dot
+    const dot = $('ladDot');
+    if (dot) {
+      if (ladder.K1) {
+        dot.className = 'dot ok';
+      } else if (ladder.M) {
+        dot.className = 'dot warn';
+      } else {
+        dot.className = 'dot';
+      }
+    }
+    
+    // Status text
+    const statusEl = $('ladStatus');
+    if (statusEl) {
+      if (!ladder.M) statusEl.textContent = 'STOPPED · All contactors OFF';
+      else if (ladder.K2) statusEl.textContent = `STARTING · Star mode · Direction: ${ladder.direction.toUpperCase()}`;
+      else if (ladder.K3) statusEl.textContent = `RUNNING · Delta mode · Direction: ${ladder.direction.toUpperCase()}`;
+      else statusEl.textContent = 'M relay ON · Waiting for contactor';
+    }
+    
+    // Update live readings
+    const r = $('ladResults');
+    if (r) {
+      r.innerHTML = [
+        makeResult('Motor', ladder.K1 ? 'RUNNING' : 'STOPPED', '', ladder.K1 ? 'good' : ''),
+        makeResult('Direction', ladder.direction.toUpperCase(), '', 'highlight'),
+        makeResult('Speed', Math.round(ladder.rpm), 'RPM', ladder.rpm > 1000 ? 'good' : 'warn'),
+        makeResult('Voltage', fmt(ladder.voltage, 1), 'V'),
+        makeResult('Current', fmt(ladder.current, 1), 'A', ladder.current > 90 ? 'warn' : 'good'),
+        makeResult('Power', fmt(ladder.power, 2), 'kW', 'highlight'),
+        makeResult('Efficiency', fmt(ladder.efficiency, 1), '%', 'good'),
+        makeResult('Mode', ladder.K2 ? 'STAR' : ladder.K3 ? 'DELTA' : 'OFF', '', ladder.K3 ? 'good' : 'warn'),
+      ].join('');
+    }
+  }
+
+  function ladderTick() {
+    if (!ladder.running) return;
+    
+    const elapsed = (Date.now() - ladder.startTime) / 1000;
+    
+    if (ladder.M) {
+      // M relay ON, timer starts
+      ladder.timer = Math.min(elapsed, ladder.timerSet);
+      
+      if (ladder.timer < ladder.timerSet) {
+        // Star mode
+        ladder.K1 = true;
+        ladder.K2 = true;
+        ladder.K3 = false;
+        // Low torque, low current
+        ladder.current = 55 + Math.random() * 5;
+        ladder.rpm = (elapsed / ladder.timerSet) * 400 + Math.random() * 10;
+      } else {
+        // Delta mode (after timer)
+        ladder.K1 = true;
+        ladder.K2 = false;
+        ladder.K3 = true;
+        // Full torque, full current
+        ladder.current = 78 + Math.sin(elapsed) * 3 + Math.random() * 2;
+        ladder.rpm = 1450 + Math.sin(elapsed) * 5;
+      }
+      
+      // Power and efficiency
+      ladder.voltage = 415 + (Math.random() - 0.5) * 3;
+      ladder.power = (Math.sqrt(3) * ladder.voltage * ladder.current * 0.86) / 1000;
+      ladder.efficiency = 88 + Math.random() * 4;
+    } else {
+      // Everything OFF
+      ladder.K1 = ladder.K2 = ladder.K3 = false;
+      ladder.timer = 0;
+      ladder.current = Math.max(0, ladder.current - 5);
+      ladder.rpm = Math.max(0, ladder.rpm - 100);
+      ladder.power = Math.max(0, ladder.power - 2);
+      ladder.efficiency = Math.max(0, ladder.efficiency - 3);
+    }
+    
+    updateLadderUI();
+  }
+
+  $('ladStart')?.addEventListener('click', () => {
+    ladder.M = true;
+    ladder.running = true;
+    ladder.startTime = Date.now();
+    ladder.timer = 0;
+    if (ladder.interval) clearInterval(ladder.interval);
+    ladder.interval = setInterval(ladderTick, 100);
+    updateLadderUI();
+  });
+  
+  $('ladStop')?.addEventListener('click', () => {
+    ladder.M = false;
+    ladder.running = false;
+    if (ladder.interval) clearInterval(ladder.interval);
+    updateLadderUI();
+  });
+  
+  $('ladFwd')?.addEventListener('click', () => {
+    ladder.direction = 'fwd';
+    updateLadderUI();
+  });
+  
+  $('ladRev')?.addEventListener('click', () => {
+    ladder.direction = 'rev';
+    updateLadderUI();
+  });
+
+  // Init ladder UI
+  updateLadderUI();
 })();
 </script>
 </body>
