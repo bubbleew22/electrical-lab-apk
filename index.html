@@ -2000,5 +2000,15 @@
   console.log('%c⚡ Electrical Engineering Lab · By Snow Owl 🦉 · Yasir_Khan', 'color:#facc15;font-size:16px;font-weight:bold;');
 })();
 </script>
+ <script>
+  // Register Service Worker
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js')
+        .then((reg) => console.log('SW registered:', reg.scope))
+        .catch((err) => console.log('SW failed:', err));
+    });
+  }
+</script>
 </body>
 </html>
