@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.bubbleew22.twa",
+        "sha256_cert_fingerprints": ["12:C1:72:CD:F7:EE:13:59:DA:1A:13:0C:0A:36:1D:AC:76:15:F2:79:A9:34:30:57:68:0E:A4:07:4A:66:9B:29"]
+      }
+    }]
