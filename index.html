@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#0a0e1a">
-<title>Electrical Engineering Lab · By Lazy Owl</title>
+<title>Electrical Engineering Lab · By Snow Owl</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
   :root {
@@ -48,7 +48,6 @@
     flex-direction: column;
     gap: 10px;
   }
-  /* HEADER */
   .header {
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     border: 1px solid var(--border);
@@ -100,7 +99,6 @@
     color: var(--accent);
     font-weight: 700;
   }
-  /* TAB BAR - HORIZONTAL SCROLL */
   .tab-bar {
     display: flex;
     gap: 6px;
@@ -135,7 +133,6 @@
     border-color: var(--accent);
     box-shadow: 0 0 12px rgba(250, 204, 21, 0.4);
   }
-  /* CONTENT AREA */
   .content {
     display: none;
     flex-direction: column;
@@ -147,7 +144,6 @@
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: none; }
   }
-  /* CARD */
   .card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -164,7 +160,6 @@
     align-items: center;
     gap: 8px;
   }
-  /* INPUT GRID */
   .input-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -210,7 +205,6 @@
     background-size: 18px;
     padding-right: 26px;
   }
-  /* BUTTONS */
   .btn-row {
     display: flex;
     gap: 6px;
@@ -236,7 +230,6 @@
   .btn-warn    { background: var(--orange); color: #451a03; }
   .btn-cool    { background: var(--blue); color: #082f49; }
   .btn-ghost   { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); }
-  /* RESULT BOX */
   .result-box {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -283,7 +276,6 @@
   .result-item.good .value { color: var(--green); }
   .result-item.warn .value { color: var(--orange); }
   .result-item.danger .value { color: var(--red); }
-  /* STATUS BAR */
   .status {
     display: flex;
     align-items: center;
@@ -306,7 +298,6 @@
   .dot.warn { background: var(--orange); box-shadow: 0 0 8px var(--orange); }
   .dot.danger { background: var(--red); box-shadow: 0 0 10px var(--red); animation: pulse 0.8s infinite; }
   @keyframes pulse { 50% { opacity: 0.3; } }
-  /* SVG CHART */
   .chart-wrap {
     background: var(--bg);
     border: 1px solid var(--border);
@@ -319,7 +310,6 @@
     width: 100%;
     height: auto;
   }
-  /* INFO TEXT */
   .info {
     font-size: 0.72rem;
     color: var(--text2);
@@ -331,7 +321,6 @@
     margin-top: 8px;
   }
   .info b { color: var(--accent); }
-  /* LOG TABLE */
   .log-wrap {
     max-height: 180px;
     overflow-y: auto;
@@ -362,7 +351,6 @@
     color: var(--text);
   }
   .log-table tr:hover td { background: var(--bg3); }
-  /* FOOTER */
   .footer {
     text-align: center;
     font-size: 0.68rem;
@@ -371,38 +359,6 @@
     letter-spacing: 2px;
   }
   .footer b { color: var(--accent); }
-  /* QUICK NAV */
-  .quick-nav {
-    display: flex;
-    gap: 6px;
-    overflow-x: auto;
-    padding: 6px 0;
-    scrollbar-width: none;
-  }
-  .quick-nav::-webkit-scrollbar { display: none; }
-  .quick-nav button {
-    flex-shrink: 0;
-    padding: 5px 10px;
-    font-size: 0.68rem;
-    background: var(--bg3);
-    border: 1px solid var(--border);
-    color: var(--text2);
-    border-radius: 20px;
-    cursor: pointer;
-  }
-  .quick-nav button:active { background: var(--accent); color: #0a0e1a; }
-  /* BADGE */
-  .chip {
-    display: inline-block;
-    padding: 2px 8px;
-    background: var(--bg3);
-    border-radius: 12px;
-    font-size: 0.65rem;
-    color: var(--accent2);
-    font-family: monospace;
-    margin-left: 6px;
-  }
-    /* ========== LIGHT / DARK MODE ========== */
   body.light-mode {
     --bg: #f8fafc;
     --bg2: #ffffff;
@@ -430,8 +386,6 @@
     color: #ffffff;
     background: #d97706;
   }
-  
-  /* THEME TOGGLE BUTTON */
   .theme-toggle {
     position: fixed;
     top: 12px;
@@ -452,48 +406,15 @@
     transition: all 0.2s;
   }
   .theme-toggle:active { transform: scale(0.9); }
-  
-  /* ========== PRINT / PDF STYLES ========== */
   @media print {
-    body {
-      background: #fff !important;
-      color: #000 !important;
-      padding: 0;
-    }
-    .tab-bar, .theme-toggle, .btn-row, .btn, .quick-nav {
-      display: none !important;
-    }
+    body { background: #fff !important; color: #000 !important; padding: 0; }
+    .tab-bar, .theme-toggle, .btn-row, .btn { display: none !important; }
     .content:not(.active) { display: none !important; }
-    .app { max-width: 100%; padding: 0; }
-    .card {
-      background: #fff !important;
-      border: 1px solid #999 !important;
-      page-break-inside: avoid;
-      margin-bottom: 12px;
-    }
+    .card { background: #fff !important; border: 1px solid #999 !important; page-break-inside: avoid; margin-bottom: 12px; }
     .card-title { color: #000 !important; border-bottom: 2px solid #000; padding-bottom: 4px; }
-    .result-item {
-      background: #f5f5f5 !important;
-      border: 1px solid #ccc !important;
-    }
+    .result-item { background: #f5f5f5 !important; border: 1px solid #ccc !important; }
     .result-item .value { color: #000 !important; }
-    .info {
-      background: #f5f5f5 !important;
-      color: #000 !important;
-      border-left: 3px solid #000 !important;
-    }
-    .header {
-      background: #fff !important;
-      border: 2px solid #000 !important;
-    }
-    .header::before { display: none; }
-    .log-table th { background: #e0e0e0 !important; color: #000 !important; }
-    .log-table td { color: #000 !important; }
-    svg { max-width: 100%; page-break-inside: avoid; }
-    .status { background: #f5f5f5 !important; border: 1px solid #999 !important; }
   }
-  
-  /* ========== INSTRUMENT CARDS ========== */
   .inst-grid {
     display: grid;
     grid-template-columns: 1fr;
@@ -561,8 +482,6 @@
   .inst-card.danger .inst-bar-fill { background: var(--red); }
   .inst-card.danger .inst-value { color: var(--red); }
   .inst-card.warn .inst-value { color: var(--orange); }
-  
-  /* ========== 3D MOTOR CANVAS ========== */
   .motor-3d-wrap {
     background: radial-gradient(ellipse at center, #1a1f35 0%, #0a0e1a 100%);
     border: 1px solid var(--border);
@@ -583,8 +502,6 @@
     cursor: grab;
   }
   #motor3D:active { cursor: grabbing; }
-  
-  /* ========== PROTOCOL BADGE ========== */
   .proto-badge {
     display: inline-flex;
     align-items: center;
@@ -598,8 +515,6 @@
   .proto-badge.tcp { background: #0891b2; color: #fff; }
   .proto-badge.profibus { background: #7c3aed; color: #fff; }
   .proto-badge.connected { animation: pulse 1.5s infinite; }
-  
-  /* ========== DATASHEET TABLE ========== */
   .datasheet-table {
     width: 100%;
     border-collapse: collapse;
@@ -624,15 +539,11 @@
   .datasheet-table tr:hover td { background: var(--bg3); }
   .datasheet-table .key { color: var(--text2); }
   .datasheet-table .val { color: var(--accent2); font-weight: 700; }
-  
-  /* ========== PDF BUTTON ========== */
   .btn-pdf {
     background: linear-gradient(135deg, #dc2626, #991b1b);
     color: #fff;
     font-weight: 700;
   }
-  
-  /* ========== MODBUS / PROFIBUS MONITOR ========== */
   .bus-monitor {
     background: #0a0a0a;
     border: 1px solid #22c55e;
@@ -653,50 +564,6 @@
   .bus-monitor .rx { color: #22c55e; }
   .bus-monitor .err { color: #ef4444; }
   .bus-monitor .ts { color: #64748b; }
-   /* ========== BETTER READABILITY · BARA TEXT ========== */
-  html, body {
-    font-size: 16px;  /* 14px se 16px */
-  }
-
-  .header h1 { font-size: 1.15rem; }
-  .header .sub { font-size: 0.8rem; }
-
-  .tab-btn {
-    font-size: 0.8rem;
-    padding: 10px 16px;
-  }
-
-  .card-title { font-size: 0.95rem; }
-
-  .input-row label { font-size: 0.78rem; }
-
-  .input-row input,
-  .input-row select {
-    font-size: 0.95rem;
-    padding: 11px 13px;
-  }
-
-  .btn {
-    font-size: 0.85rem;
-    padding: 12px 14px;
-  }
-
-  .result-item .label { font-size: 0.72rem; }
-  .result-item .value { font-size: 1.15rem; }
-  .result-item .unit { font-size: 0.72rem; }
-
-  .info { font-size: 0.82rem; }
-  .log-table { font-size: 0.8rem; }
-  .log-table th { font-size: 0.72rem; }
-
-  .inst-card .inst-name { font-size: 0.78rem; }
-  .inst-card .inst-value { font-size: 1.2rem; }
-  .inst-card .inst-limits { font-size: 0.68rem; }
-
-  .datasheet-table { font-size: 0.8rem; }
-  .datasheet-table th { font-size: 0.72rem; }
-
-  .bus-monitor { font-size: 0.76rem; }
 </style>
 </head>
 <body>
@@ -705,134 +572,419 @@
   <div class="header">
     <h1>⚡ ELECTRICAL ENGINEERING LAB <span class="badge">v1.0</span></h1>
     <div class="sub">Motor · VFD · Breakers · Busbar · Wire · Load · Log</div>
-    <div class="sub" style="margin-top:6px;">By <span class="owl">Lazy Owl 🦉</span></div>
+    <div class="sub" style="margin-top:6px;">By <span class="owl">Snow Owl 🦉</span></div>
+<div class="sub" style="margin-top:3px; font-size:0.65rem; opacity:0.7;">Signature: Yasir_Khan</div>
   </div>
-<div class="tab-bar" id="tabBar">
-  <button class="tab-btn active" data-tab="motor">🔌 Motor</button>
-  <button class="tab-btn" data-tab="vfd">🔄 VFD</button>
-  <button class="tab-btn" data-tab="gear">⚙️ Gearbox</button>
-  <button class="tab-btn" data-tab="blower">💨 Blower</button>
-  <button class="tab-btn" data-tab="conveyor">🏭 Conveyor</button>
-  <button class="tab-btn" data-tab="starter">🚀 Starter</button>
-  <button class="tab-btn" data-tab="breaker">⚡ Breakers</button>
-  <button class="tab-btn" data-tab="busbar">📏 Busbar</button>
-  <button class="tab-btn" data-tab="wire">🔧 Wire</button>
-  <button class="tab-btn" data-tab="load">📊 Load</button>
-  <button class="tab-btn" data-tab="instrument">🎛️ Instruments</button>
-  <button class="tab-btn" data-tab="cableData">📄 Cable Data</button>
-  <button class="tab-btn" data-tab="motorData">📋 Motor Wire</button>
-  <button class="tab-btn" data-tab="simulation">📈 Live Sim</button>
-  <button class="tab-btn" data-tab="trend">📉 Trend</button>
-  <button class="tab-btn" data-tab="log">📋 Log</button>
-  <button class="tab-btn" data-tab="protocol">🔌 Modbus/Profibus</button>
-  <button class="tab-btn" data-tab="motor3d">🎯 3D Motor</button>
-</div>
+
+  <div class="tab-bar" id="tabBar">
+    <button class="tab-btn active" data-tab="motor">🔌 Motor</button>
+    <button class="tab-btn" data-tab="vfd">🔄 VFD</button>
+    <button class="tab-btn" data-tab="gear">⚙️ Gearbox</button>
+    <button class="tab-btn" data-tab="blower">💨 Blower</button>
+    <button class="tab-btn" data-tab="conveyor">🏭 Conveyor</button>
+    <button class="tab-btn" data-tab="starter">🚀 Starter</button>
+    <button class="tab-btn" data-tab="breaker">⚡ Breakers</button>
+    <button class="tab-btn" data-tab="busbar">📏 Busbar</button>
+    <button class="tab-btn" data-tab="wire">🔧 Wire</button>
+    <button class="tab-btn" data-tab="load">📊 Load</button>
+    <button class="tab-btn" data-tab="instrument">🎛️ Instruments</button>
+    <button class="tab-btn" data-tab="cableData">📄 Cable Data</button>
+    <button class="tab-btn" data-tab="motorData">📋 Motor Wire</button>
+    <button class="tab-btn" data-tab="simulation">📈 Live Sim</button>
+    <button class="tab-btn" data-tab="trend">📉 Trend</button>
+    <button class="tab-btn" data-tab="log">📋 Log</button>
+    <button class="tab-btn" data-tab="protocol">🔌 Modbus/Profibus</button>
+    <button class="tab-btn" data-tab="motor3d">🎯 3D Motor</button>
+  </div>
+
   <!-- ========== MOTOR TAB ========== -->
   <div class="content active" id="tab-motor">
     <div class="card">
       <div class="card-title">🔌 INDUCTION MOTOR CALCULATOR</div>
       <div class="input-grid">
-        <div class="input-row">
-          <label>Motor Rating</label>
-          <input type="number" id="motorHP" value="50" step="0.5">
-        </div>
-        <div class="input-row">
-          <label>Unit</label>
-          <select id="motorUnit">
-            <option value="hp">HP</option>
-            <option value="kw">kW</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Voltage (V)</label>
-          <input type="number" id="motorV" value="415">
-        </div>
-        <div class="input-row">
-          <label>Phase</label>
-          <select id="motorPhase">
-            <option value="3">3-Phase</option>
-            <option value="1">1-Phase</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Frequency (Hz)</label>
-          <input type="number" id="motorHz" value="50">
-        </div>
-        <div class="input-row">
-          <label>Poles</label>
-          <select id="motorPoles">
-            <option value="2">2 Pole (3000 RPM)</option>
-            <option value="4" selected>4 Pole (1500 RPM)</option>
-            <option value="6">6 Pole (1000 RPM)</option>
-            <option value="8">8 Pole (750 RPM)</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Efficiency (%)</label>
-          <input type="number" id="motorEff" value="92">
-        </div>
-        <div class="input-row">
-          <label>Power Factor</label>
-          <input type="number" id="motorPF" value="0.86" step="0.01">
-        </div>
-        <div class="input-row">
-          <label>Service Factor</label>
-          <input type="number" id="motorSF" value="1.15" step="0.05">
-        </div>
-        <div class="input-row">
-          <label>Starting Method</label>
-          <select id="motorStart">
-            <option value="dol">DOL (6x)</option>
-            <option value="sd">Star-Delta (2.5x)</option>
-            <option value="soft">Soft Starter (3x)</option>
-            <option value="vfd" selected>VFD (1.1x)</option>
-          </select>
-        </div>
+        <div class="input-row"><label>Motor Rating</label><input type="number" id="motorHP" value="50" step="0.5"></div>
+        <div class="input-row"><label>Unit</label><select id="motorUnit"><option value="hp">HP</option><option value="kw">kW</option></select></div>
+        <div class="input-row"><label>Voltage (V)</label><input type="number" id="motorV" value="415"></div>
+        <div class="input-row"><label>Phase</label><select id="motorPhase"><option value="3">3-Phase</option><option value="1">1-Phase</option></select></div>
+        <div class="input-row"><label>Frequency (Hz)</label><input type="number" id="motorHz" value="50"></div>
+        <div class="input-row"><label>Poles</label><select id="motorPoles"><option value="2">2 Pole (3000 RPM)</option><option value="4" selected>4 Pole (1500 RPM)</option><option value="6">6 Pole (1000 RPM)</option><option value="8">8 Pole (750 RPM)</option></select></div>
+        <div class="input-row"><label>Efficiency (%)</label><input type="number" id="motorEff" value="92"></div>
+        <div class="input-row"><label>Power Factor</label><input type="number" id="motorPF" value="0.86" step="0.01"></div>
+        <div class="input-row"><label>Service Factor</label><input type="number" id="motorSF" value="1.15" step="0.05"></div>
+        <div class="input-row"><label>Starting Method</label><select id="motorStart"><option value="dol">DOL (6x)</option><option value="sd">Star-Delta (2.5x)</option><option value="soft">Soft Starter (3x)</option><option value="vfd" selected>VFD (1.1x)</option></select></div>
       </div>
       <div class="btn-row">
         <button class="btn btn-primary" id="motorCalc">⚡ CALCULATE</button>
         <button class="btn btn-ghost" id="motorReset">⟲ RESET</button>
       </div>
-      <div class="result-box">
-        <div class="result-grid" id="motorResults">
-          <!-- filled by JS -->
-        </div>
-      </div>
-      <div class="info" id="motorInfo">
-        <b>Roman Urdu:</b> Motor ki rating daalein aur calculate dabayein. FLC, starting current, torque, cable size sab nikal aayega.
-      </div>
+      <div class="result-box"><div class="result-grid" id="motorResults"></div></div>
+      <div class="info" id="motorInfo"><b>Roman Urdu:</b> Motor ki rating daalein aur calculate dabayein. FLC, starting current, torque, cable size sab nikal aayega.</div>
     </div>
   </div>
+
+  <!-- ========== VFD TAB ========== -->
+  <div class="content" id="tab-vfd">
+    <div class="card">
+      <div class="card-title">🔄 VFD SIZING</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Motor FLC (A)</label><input type="number" id="vfdFLC" value="90"></div>
+        <div class="input-row"><label>Motor Voltage (V)</label><input type="number" id="vfdV" value="415"></div>
+        <div class="input-row"><label>Duty</label><select id="vfdDuty"><option value="normal">Normal (100%)</option><option value="heavy">Heavy (110%)</option><option value="extreme">Extreme (150%)</option></select></div>
+        <div class="input-row"><label>Ambient (°C)</label><input type="number" id="vfdAmb" value="40"></div>
+        <div class="input-row"><label>Altitude (m)</label><input type="number" id="vfdAlt" value="0"></div>
+        <div class="input-row"><label>Overload Time (s)</label><input type="number" id="vfdOL" value="60"></div>
+        <div class="input-row"><label>Cable Length (m)</label><input type="number" id="vfdCable" value="30"></div>
+        <div class="input-row"><label>Carrier Frequency (kHz)</label><input type="number" id="vfdCarrier" value="4"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="vfdCalc">⚡ SIZE VFD</button><button class="btn btn-ghost" id="vfdReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="vfdResults"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== GEARBOX TAB ========== -->
+  <div class="content" id="tab-gear">
+    <div class="card">
+      <div class="card-title">⚙️ GEARBOX SIZING</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Input Power (kW)</label><input type="number" id="gearKW" value="30"></div>
+        <div class="input-row"><label>Input Speed (RPM)</label><input type="number" id="gearRPMin" value="1450"></div>
+        <div class="input-row"><label>Output Speed (RPM)</label><input type="number" id="gearRPMout" value="100"></div>
+        <div class="input-row"><label>Service Factor</label><input type="number" id="gearSF" value="1.5" step="0.1"></div>
+        <div class="input-row"><label>Gear Type</label><select id="gearType"><option value="helical">Helical (97%)</option><option value="bevel">Bevel-Helical (95%)</option><option value="worm">Worm (75%)</option><option value="planetary">Planetary (96%)</option></select></div>
+        <div class="input-row"><label>Operating Hours/day</label><input type="number" id="gearHours" value="16"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="gearCalc">⚙️ CALCULATE</button><button class="btn btn-ghost" id="gearReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="gearResults"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== BLOWER TAB ========== -->
+  <div class="content" id="tab-blower">
+    <div class="card">
+      <div class="card-title">💨 BLOWER / FAN CALCULATOR</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Air Flow (CFM)</label><input type="number" id="blowCFM" value="5000"></div>
+        <div class="input-row"><label>Static Pressure (inWC)</label><input type="number" id="blowSP" value="8" step="0.1"></div>
+        <div class="input-row"><label>Air Density (kg/m³)</label><input type="number" id="blowDensity" value="1.2" step="0.01"></div>
+        <div class="input-row"><label>Fan Efficiency (%)</label><input type="number" id="blowEff" value="65"></div>
+        <div class="input-row"><label>Motor Efficiency (%)</label><input type="number" id="blowMotorEff" value="92"></div>
+        <div class="input-row"><label>Temperature (°C)</label><input type="number" id="blowTemp" value="30"></div>
+        <div class="input-row"><label>Altitude (m)</label><input type="number" id="blowAlt" value="0"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="blowerCalc">💨 CALCULATE</button><button class="btn btn-ghost" id="blowerReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="blowerResults"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== CONVEYOR TAB ========== -->
+  <div class="content" id="tab-conveyor">
+    <div class="card">
+      <div class="card-title">🏭 BELT CONVEYOR CALCULATOR</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Capacity (TPH)</label><input type="number" id="convTPH" value="100"></div>
+        <div class="input-row"><label>Belt Speed (m/s)</label><input type="number" id="convSpeed" value="1.5" step="0.1"></div>
+        <div class="input-row"><label>Length (m)</label><input type="number" id="convLength" value="50"></div>
+        <div class="input-row"><label>Lift Height (m)</label><input type="number" id="convLift" value="10"></div>
+        <div class="input-row"><label>Incline Angle (°)</label><input type="number" id="convAngle" value="12"></div>
+        <div class="input-row"><label>Material Density (t/m³)</label><input type="number" id="convDensity" value="1.6" step="0.1"></div>
+        <div class="input-row"><label>Friction Coefficient</label><input type="number" id="convFriction" value="0.03" step="0.005"></div>
+        <div class="input-row"><label>Drive Efficiency (%)</label><input type="number" id="convEff" value="90"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="convCalc">🏭 CALCULATE</button><button class="btn btn-ghost" id="convReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="conveyorResults"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== STARTER TAB ========== -->
+  <div class="content" id="tab-starter">
+    <div class="card">
+      <div class="card-title">🚀 STARTER SIZING</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Motor kW</label><input type="number" id="stKW" value="37"></div>
+        <div class="input-row"><label>Motor FLC (A)</label><input type="number" id="stFLC" value="70"></div>
+        <div class="input-row"><label>Voltage (V)</label><input type="number" id="stV" value="415"></div>
+        <div class="input-row"><label>Starter Type</label><select id="stType"><option value="dol">DOL</option><option value="sd" selected>Star-Delta</option><option value="soft">Soft Starter</option><option value="vfd">VFD</option></select></div>
+        <div class="input-row"><label>Start Time (s)</label><input type="number" id="stTime" value="10"></div>
+        <div class="input-row"><label>Starts per Hour</label><input type="number" id="stStarts" value="6"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="stCalc">🚀 CALCULATE</button><button class="btn btn-ghost" id="stReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="starterResults"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== BREAKER TAB ========== -->
+  <div class="content" id="tab-breaker">
+    <div class="card">
+      <div class="card-title">⚡ BREAKER SELECTION</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Load Current (A)</label><input type="number" id="brkLoad" value="400"></div>
+        <div class="input-row"><label>System Voltage (V)</label><input type="number" id="brkV" value="415"></div>
+        <div class="input-row"><label>Breaker Type</label><select id="brkType"><option value="mcb">MCB (≤125A)</option><option value="mccb" selected>MCCB (16-1600A)</option><option value="acb">ACB (630-6300A)</option><option value="vcb">VCB (11kV-33kV)</option></select></div>
+        <div class="input-row"><label>Breaking Capacity (kA)</label><input type="number" id="brkIcu" value="36"></div>
+        <div class="input-row"><label>Utilization Category</label><select id="brkCat"><option value="b">B (Resistive)</option><option value="a" selected>A (Mixed)</option><option value="d">D (Motor/Transformer)</option></select></div>
+        <div class="input-row"><label>Poles</label><select id="brkPoles"><option value="3" selected>3P</option><option value="4">4P</option></select></div>
+        <div class="input-row"><label>Ambient (°C)</label><input type="number" id="brkAmb" value="40"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="brkCalc">⚡ SELECT BREAKER</button><button class="btn btn-ghost" id="brkReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="breakerResults"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== BUSBAR TAB ========== -->
+  <div class="content" id="tab-busbar">
+    <div class="card">
+      <div class="card-title">📏 BUSBAR SIZING</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Current (A)</label><input type="number" id="bbCurrent" value="800"></div>
+        <div class="input-row"><label>Material</label><select id="bbMaterial"><option value="cu" selected>Copper (Cu)</option><option value="al">Aluminium (Al)</option></select></div>
+        <div class="input-row"><label>Busbar Width (mm)</label><input type="number" id="bbWidth" value="50"></div>
+        <div class="input-row"><label>Busbar Thickness (mm)</label><input type="number" id="bbThick" value="10"></div>
+        <div class="input-row"><label>Number in Parallel</label><input type="number" id="bbParallel" value="1"></div>
+        <div class="input-row"><label>Ambient (°C)</label><input type="number" id="bbAmb" value="40"></div>
+        <div class="input-row"><label>Temp Rise Limit (K)</label><input type="number" id="bbRise" value="50"></div>
+        <div class="input-row"><label>Enclosure</label><select id="bbEnclosure"><option value="open">Open Air</option><option value="ip31">IP31 Enclosed</option><option value="ip54" selected>IP54 Enclosed</option><option value="ip65">IP65 Enclosed</option></select></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="bbCalc">📏 CALCULATE</button><button class="btn btn-ghost" id="bbReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="busbarResults"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== WIRE TAB ========== -->
+  <div class="content" id="tab-wire">
+    <div class="card">
+      <div class="card-title">🔧 CABLE / WIRE SIZING</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Load Current (A)</label><input type="number" id="wireCurrent" value="100"></div>
+        <div class="input-row"><label>Voltage (V)</label><input type="number" id="wireV" value="415"></div>
+        <div class="input-row"><label>Phase</label><select id="wirePhase"><option value="3" selected>3-Phase</option><option value="1">1-Phase</option></select></div>
+        <div class="input-row"><label>Length (m)</label><input type="number" id="wireLen" value="80"></div>
+        <div class="input-row"><label>Max VD Allowed (%)</label><input type="number" id="wireVD" value="3" step="0.5"></div>
+        <div class="input-row"><label>Conductor</label><select id="wireCond"><option value="cu" selected>Copper</option><option value="al">Aluminium</option></select></div>
+        <div class="input-row"><label>Insulation</label><select id="wireIns"><option value="xlpe" selected>XLPE (90°C)</option><option value="pvc">PVC (70°C)</option></select></div>
+        <div class="input-row"><label>Installation</label><select id="wireInstall"><option value="tray">Cable Tray</option><option value="conduit">Conduit</option><option value="buried" selected>Buried</option><option value="air">Free Air</option></select></div>
+        <div class="input-row"><label>Power Factor</label><input type="number" id="wirePF" value="0.85" step="0.01"></div>
+        <div class="input-row"><label>Ambient (°C)</label><input type="number" id="wireAmb" value="40"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="wireCalc">🔧 CALCULATE</button><button class="btn btn-ghost" id="wireReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="wireResults"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== LOAD TAB ========== -->
+  <div class="content" id="tab-load">
+    <div class="card">
+      <div class="card-title">📊 LOAD SCHEDULE</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Total Connected Load (kW)</label><input type="number" id="loadTotal" value="500"></div>
+        <div class="input-row"><label>Demand Factor</label><input type="number" id="loadDF" value="0.8" step="0.05"></div>
+        <div class="input-row"><label>Diversity Factor</label><input type="number" id="loadDiv" value="0.9" step="0.05"></div>
+        <div class="input-row"><label>Power Factor</label><input type="number" id="loadPF" value="0.85" step="0.01"></div>
+        <div class="input-row"><label>Voltage (V)</label><input type="number" id="loadV" value="415"></div>
+        <div class="input-row"><label>Target PF</label><input type="number" id="loadTargetPF" value="0.95" step="0.01"></div>
+        <div class="input-row"><label>Future Expansion (%)</label><input type="number" id="loadFuture" value="20"></div>
+        <div class="input-row"><label>Transformer Size (kVA)</label><input type="number" id="loadTrafo" value="630"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="loadCalc">📊 CALCULATE</button><button class="btn btn-ghost" id="loadReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="loadResults"></div></div>
+    </div>
+  </div>
+
+  <!-- ========== INSTRUMENTS TAB ========== -->
+  <div class="content" id="tab-instrument">
+    <div class="card">
+      <div class="card-title">🎛️ INSTRUMENTATION · LIVE PROCESS</div>
+      <div class="inst-grid" id="instLiveGrid"></div>
+      <div class="btn-row" style="margin-top:10px;">
+        <button class="btn btn-primary" id="instStart">▶ START LIVE</button>
+        <button class="btn btn-warn" id="instPause">⏸ PAUSE</button>
+        <button class="btn btn-danger" id="instStop">⏹ STOP</button>
+        <button class="btn btn-pdf" id="instPDF">📄 SAVE PDF</button>
+      </div>
+      <div class="status" style="margin-top:8px;">
+        <div class="dot" id="instDot"></div>
+        <span id="instStatus">Instruments idle · Click START LIVE</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">📊 4-20mA LOOP CALCULATOR</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Process Variable</label><select id="maVar"><option value="pressure">Pressure (bar)</option><option value="temperature">Temperature (°C)</option><option value="flow">Flow (m³/h)</option><option value="level">Level (%)</option><option value="ratio">Ratio (0-1)</option></select></div>
+        <div class="input-row"><label>Range Min</label><input type="number" id="maMin" value="0"></div>
+        <div class="input-row"><label>Range Max</label><input type="number" id="maMax" value="100"></div>
+        <div class="input-row"><label>Process Value</label><input type="number" id="maPV" value="50"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="maCalc">📊 CALCULATE</button><button class="btn btn-ghost" id="maReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="maResults"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">⚡ CT / PT METERING</div>
+      <div class="input-grid">
+        <div class="input-row"><label>CT Primary (A)</label><input type="number" id="instPrimary" value="400"></div>
+        <div class="input-row"><label>CT Secondary</label><select id="instSec"><option value="1">1 A</option><option value="5" selected>5 A</option></select></div>
+        <div class="input-row"><label>CT Class</label><select id="instClass"><option value="0.5">0.5</option><option value="1" selected>1.0</option><option value="5P10">5P10</option><option value="10P10">10P10</option></select></div>
+        <div class="input-row"><label>Meter Accuracy</label><select id="instAcc"><option value="0.5">0.5</option><option value="1" selected>1.0</option><option value="0.2">0.2</option></select></div>
+        <div class="input-row"><label>Burden (VA)</label><input type="number" id="instBurden" value="15"></div>
+        <div class="input-row"><label>PT Primary (V)</label><input type="number" id="instPTPrim" value="11000"></div>
+        <div class="input-row"><label>PT Secondary (V)</label><input type="number" id="instPTSec" value="110"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="instCalc">⚡ CALCULATE</button><button class="btn btn-ghost" id="instReset">⟲ RESET</button></div>
+      <div class="result-box"><div class="result-grid" id="instResults"></div></div>
+    </div>
+
+    <div class="card">
+      <div class="card-title">🔩 BEARING HEALTH MONITOR</div>
+      <div class="inst-grid" id="bearingGrid"></div>
+    </div>
+  </div>
+
   <!-- ========== CABLE DATASHEET TAB ========== -->
   <div class="content" id="tab-cableData">
     <div class="card">
       <div class="card-title">📄 CABLE DATASHEET · IEC 60502</div>
-      <div class="input-row" style="margin-bottom:10px;">
-        <label>Search / Filter</label>
-        <input type="text" id="cableSearch" placeholder="e.g. 4, 16, 95" style="width:100%;">
-      </div>
+      <div class="input-row" style="margin-bottom:10px;"><label>Search / Filter</label><input type="text" id="cableSearch" placeholder="e.g. 4, 16, 95" style="width:100%;"></div>
       <div style="overflow-x:auto;">
         <table class="datasheet-table" id="cableTable">
-          <thead>
-            <tr>
-              <th>Size (mm²)</th>
-              <th>Cu PVC (A)</th>
-              <th>Cu XLPE (A)</th>
-              <th>Al XLPE (A)</th>
-              <th>R (Ω/km)</th>
-              <th>X (Ω/km)</th>
-              <th>Weight (kg/km)</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Size (mm²)</th><th>Cu PVC (A)</th><th>Cu XLPE (A)</th><th>Al XLPE (A)</th><th>R (Ω/km)</th><th>X (Ω/km)</th><th>Weight (kg/km)</th></tr></thead>
           <tbody id="cableTableBody"></tbody>
         </table>
       </div>
+      <div class="btn-row" style="margin-top:10px;"><button class="btn btn-pdf" id="cablePDF">📄 SAVE PDF</button></div>
+    </div>
+  </div>
+
+  <!-- ========== MOTOR WIRE DATASHEET TAB ========== -->
+  <div class="content" id="tab-motorData">
+    <div class="card">
+      <div class="card-title">📋 MOTOR WIRE & BREAKER DATASHEET</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Motor HP</label><input type="number" id="mwHP" value="50"></div>
+        <div class="input-row"><label>Voltage (V)</label><input type="number" id="mwV" value="415"></div>
+        <div class="input-row"><label>Phase</label><select id="mwPhase"><option value="3" selected>3-Phase</option><option value="1">1-Phase</option></select></div>
+        <div class="input-row"><label>Starter</label><select id="mwStart"><option value="dol">DOL</option><option value="sd" selected>Star-Delta</option><option value="soft">Soft Starter</option><option value="vfd">VFD</option></select></div>
+        <div class="input-row"><label>Distance (m)</label><input type="number" id="mwDist" value="50"></div>
+        <div class="input-row"><label>Max VD (%)</label><input type="number" id="mwVD" value="3" step="0.5"></div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" id="mwCalc">📋 GENERATE</button><button class="btn btn-pdf" id="mwPDF">📄 SAVE PDF</button></div>
+      <div id="mwOutput" style="margin-top:12px;"></div>
+    </div>
+  </div>
+
+  <!-- ========== LIVE SIM TAB ========== -->
+  <div class="content" id="tab-simulation">
+    <div class="card">
+      <div class="card-title">📈 LIVE MOTOR SIMULATION</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Motor FLC (A)</label><input type="number" id="simFLC" value="100"></div>
+        <div class="input-row"><label>Nominal Voltage (V)</label><input type="number" id="simV" value="415"></div>
+        <div class="input-row"><label>Load %</label><input type="number" id="simLoad" value="75" min="0" max="150"></div>
+        <div class="input-row"><label>Ambient (°C)</label><input type="number" id="simAmb" value="40"></div>
+        <div class="input-row"><label>Sim Speed</label><select id="simSpeed"><option value="1">1× Normal</option><option value="5" selected>5× Fast</option><option value="10">10× Turbo</option></select></div>
+        <div class="input-row"><label>Fault Injection</label><select id="simFault"><option value="none" selected>None</option><option value="overload">Overload</option><option value="phaseLoss">Phase Loss</option><option value="earthFault">Earth Fault</option><option value="overheat">Overheat</option></select></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="simStart">▶ START SIM</button>
+        <button class="btn btn-warn" id="simPause">⏸ PAUSE</button>
+        <button class="btn btn-danger" id="simStop">⏹ STOP</button>
+        <button class="btn btn-ghost" id="simReset">⟲ RESET</button>
+      </div>
+      <div class="result-box"><div class="result-grid" id="simResults"></div></div>
+      <div class="chart-wrap" style="margin-top:10px;">
+        <svg viewBox="0 0 400 140" id="simChart">
+          <rect width="400" height="140" fill="#0a0e1a"/>
+          <path id="simPathCur" fill="none" stroke="#22d3ee" stroke-width="2"/>
+          <path id="simPathTemp" fill="none" stroke="#ef4444" stroke-width="2"/>
+          <text x="10" y="15" fill="#22d3ee" font-size="9" font-family="monospace">Current (A)</text>
+          <text x="330" y="15" fill="#ef4444" font-size="9" font-family="monospace">Temp (°C)</text>
+        </svg>
+      </div>
+      <div class="status"><div class="dot" id="simDot"></div><span id="simStatus">READY TO START</span></div>
+    </div>
+  </div>
+
+  <!-- ========== TREND TAB ========== -->
+  <div class="content" id="tab-trend">
+    <div class="card">
+      <div class="card-title">📉 TREND CHART (3-PHASE)</div>
+      <div class="chart-wrap">
+        <svg viewBox="0 0 400 200" id="trendChart">
+          <rect width="400" height="200" fill="#0a0e1a"/>
+          <g id="trendGrid"></g>
+          <path id="trendR" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+          <path id="trendY" fill="none" stroke="#facc15" stroke-width="1.5"/>
+          <path id="trendB" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+          <path id="trendV" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 2"/>
+          <text x="10" y="14" fill="#ef4444" font-size="9" font-family="monospace">R</text>
+          <text x="28" y="14" fill="#facc15" font-size="9" font-family="monospace">Y</text>
+          <text x="46" y="14" fill="#3b82f6" font-size="9" font-family="monospace">B</text>
+          <text x="70" y="14" fill="#22c55e" font-size="9" font-family="monospace">V</text>
+        </svg>
+      </div>
       <div class="btn-row" style="margin-top:10px;">
-        <button class="btn btn-pdf" id="cablePDF">📄 SAVE PDF</button>
+        <button class="btn btn-primary" id="trendStart">▶ START TREND</button>
+        <button class="btn btn-danger" id="trendStop">⏹ STOP</button>
+        <button class="btn btn-cool" id="trendCSV">📥 EXPORT CSV</button>
+        <button class="btn btn-ghost" id="trendClear">⟲ CLEAR</button>
+      </div>
+      <div class="status" style="margin-top:8px;"><div class="dot ok" id="trendDot"></div><span id="trendStatus">Trend ready · Click START</span></div>
+    </div>
+  </div>
+
+  <!-- ========== LOG TAB ========== -->
+  <div class="content" id="tab-log">
+    <div class="card">
+      <div class="card-title">📋 SYSTEM DATA LOG</div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="logExport">📥 EXPORT CSV</button>
+        <button class="btn btn-warn" id="logPause">⏸ PAUSE LOG</button>
+        <button class="btn btn-danger" id="logClear">🗑 CLEAR LOG</button>
+      </div>
+      <div class="log-wrap" style="margin-top:10px;">
+        <table class="log-table">
+          <thead><tr><th>Time</th><th>V (V)</th><th>I (A)</th><th>PF</th><th>kW</th><th>Temp</th><th>Status</th></tr></thead>
+          <tbody id="logBody"><tr><td colspan="7" style="text-align:center;color:#8892b0;padding:20px;">No data yet.</td></tr></tbody>
+        </table>
       </div>
     </div>
   </div>
-    <!-- ========== 3D MOTOR TAB ========== -->
+
+  <!-- ========== PROTOCOL TAB ========== -->
+  <div class="content" id="tab-protocol">
+    <div class="card">
+      <div class="card-title">🔌 INDUSTRIAL PROTOCOL SIMULATION</div>
+      <div class="input-grid">
+        <div class="input-row"><label>Protocol</label><select id="protoType"><option value="modbus">Modbus TCP</option><option value="profibus">Profibus DP</option></select></div>
+        <div class="input-row"><label>Slave / Node ID</label><input type="number" id="protoID" value="1"></div>
+        <div class="input-row"><label>IP / Address</label><input type="text" id="protoAddr" value="192.168.1.10"></div>
+        <div class="input-row"><label>Poll Interval (ms)</label><input type="number" id="protoPoll" value="500"></div>
+        <div class="input-row"><label>Register Start</label><input type="number" id="protoStart" value="40001"></div>
+        <div class="input-row"><label>Register Count</label><input type="number" id="protoCount" value="8"></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="protoConnect">🔗 CONNECT</button>
+        <button class="btn btn-warn" id="protoDisconnect">🔌 DISCONNECT</button>
+        <button class="btn btn-danger" id="protoReset">⟲ RESET</button>
+      </div>
+      <div class="status" style="margin-top:8px;">
+        <span id="protoBadge" class="proto-badge tcp">MODBUS TCP</span>
+        <div class="dot" id="protoDot"></div>
+        <span id="protoStatus">Disconnected</span>
+      </div>
+      <div class="bus-monitor" id="busLog" style="margin-top:10px;"><div><span class="ts">[SYSTEM]</span> Ready to connect...</div></div>
+    </div>
+    <div class="card">
+      <div class="card-title">📊 REGISTER MAP (LIVE)</div>
+      <div style="overflow-x:auto;">
+        <table class="datasheet-table">
+          <thead><tr><th>Address</th><th>Tag Name</th><th>Value</th><th>Unit</th><th>Status</th></tr></thead>
+          <tbody id="protoRegisterBody"><tr><td colspan="5" style="text-align:center;color:#8892b0;padding:20px;">No connection</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== 3D MOTOR TAB ========== -->
   <div class="content" id="tab-motor3d">
     <div class="card">
       <div class="card-title">🎯 3D MOTOR VIEW · REALTIME DIAGNOSTICS</div>
@@ -845,66 +997,52 @@
         <button class="btn btn-cool" id="m3dView">🔄 CHANGE VIEW</button>
         <button class="btn btn-danger" id="m3dFault">⚠️ INJECT FAULT</button>
       </div>
-      <div class="result-box" style="margin-top:10px;">
-        <div class="result-grid" id="m3dResults"></div>
-      </div>
-      <div class="status" style="margin-top:8px;">
-        <div class="dot" id="m3dDot"></div>
-        <span id="m3dStatus">3D motor idle · Click RUN</span>
-           <!-- ========== LADDER LOGIC SIMULATION ========== -->
+      <div class="result-box" style="margin-top:10px;"><div class="result-grid" id="m3dResults"></div></div>
+      <div class="status" style="margin-top:8px;"><div class="dot" id="m3dDot"></div><span id="m3dStatus">3D motor idle · Click RUN</span></div>
+    </div>
+
+    <!-- ========== LADDER LOGIC STAR-DELTA ========== -->
     <div class="card" style="margin-top:10px;">
       <div class="card-title">🪜 LADDER LOGIC · STAR-DELTA STARTER</div>
-      
-      <!-- Ladder Diagram -->
       <div class="chart-wrap" style="background:#0a0e1a; padding:12px;">
         <svg viewBox="0 0 500 320" id="ladderSvg" style="width:100%; height:auto;">
-          <!-- Rails -->
           <line x1="30" y1="20" x2="30" y2="300" stroke="#facc15" stroke-width="3"/>
           <line x1="470" y1="20" x2="470" y2="300" stroke="#facc15" stroke-width="3"/>
-          
-          <!-- Rung 1: START/STOP (M relay) -->
-          <line x1="30" y1="50" x2="100" y2="50" stroke="#22c55e" stroke-width="2" id="lad1a"/>
-          <!-- STOP NC -->
+
+          <!-- Rung 1: M relay (STOP + START) -->
+          <line x1="30" y1="50" x2="100" y2="50" stroke="#22c55e" stroke-width="2"/>
           <line x1="100" y1="35" x2="100" y2="65" stroke="#ef4444" stroke-width="2"/>
           <line x1="100" y1="35" x2="120" y2="50" stroke="#ef4444" stroke-width="2"/>
           <text x="95" y="30" fill="#ef4444" font-size="9" font-family="monospace">STOP</text>
-          <line x1="120" y1="50" x2="180" y2="50" stroke="#22c55e" stroke-width="2" id="lad1b"/>
-          <!-- START NO -->
+          <line x1="120" y1="50" x2="180" y2="50" stroke="#22c55e" stroke-width="2"/>
           <line x1="180" y1="40" x2="200" y2="50" stroke="#22c55e" stroke-width="2"/>
           <line x1="180" y1="60" x2="200" y2="50" stroke="#22c55e" stroke-width="2"/>
           <text x="175" y="30" fill="#22c55e" font-size="9" font-family="monospace">START</text>
-          <line x1="200" y1="50" x2="260" y2="50" stroke="#22c55e" stroke-width="2" id="lad1c"/>
-          <!-- M relay coil -->
+          <line x1="200" y1="50" x2="260" y2="50" stroke="#22c55e" stroke-width="2"/>
           <circle cx="280" cy="50" r="15" fill="none" stroke="#facc15" stroke-width="2" id="ladM"/>
           <text x="275" y="55" fill="#facc15" font-size="11" font-family="monospace">M</text>
-          <line x1="295" y1="50" x2="470" y2="50" stroke="#22c55e" stroke-width="2" id="lad1d"/>
-          <text x="20" y="45" fill="#22c55e" font-size="9" font-family="monospace">1</text>
-          
-          <!-- Rung 2: K1 Main Contactor -->
+          <line x1="295" y1="50" x2="470" y2="50" stroke="#22c55e" stroke-width="2"/>
+
+          <!-- Rung 2: K1 Main -->
           <line x1="30" y1="110" x2="100" y2="110" stroke="#22c55e" stroke-width="2"/>
-          <!-- M NO -->
           <line x1="100" y1="100" x2="120" y2="110" stroke="#22c55e" stroke-width="2"/>
           <line x1="100" y1="120" x2="120" y2="110" stroke="#22c55e" stroke-width="2"/>
           <text x="95" y="95" fill="#22c55e" font-size="9" font-family="monospace">M</text>
           <line x1="120" y1="110" x2="180" y2="110" stroke="#22c55e" stroke-width="2"/>
-          <!-- K3 NC (from previous, so main not on during star) -->
           <line x1="180" y1="95" x2="180" y2="125" stroke="#ef4444" stroke-width="2"/>
           <line x1="180" y1="95" x2="200" y2="110" stroke="#ef4444" stroke-width="2"/>
           <text x="175" y="90" fill="#ef4444" font-size="9" font-family="monospace">K3</text>
           <line x1="200" y1="110" x2="260" y2="110" stroke="#22c55e" stroke-width="2"/>
-          <!-- K1 Coil -->
           <circle cx="280" cy="110" r="15" fill="none" stroke="#facc15" stroke-width="2" id="ladK1"/>
           <text x="272" y="115" fill="#facc15" font-size="11" font-family="monospace">K1</text>
           <line x1="295" y1="110" x2="470" y2="110" stroke="#22c55e" stroke-width="2"/>
-          <text x="20" y="105" fill="#22c55e" font-size="9" font-family="monospace">2</text>
-          
-          <!-- Rung 3: Star Contactor K2 -->
+
+          <!-- Rung 3: K2 Star -->
           <line x1="30" y1="170" x2="100" y2="170" stroke="#22c55e" stroke-width="2"/>
           <line x1="100" y1="160" x2="120" y2="170" stroke="#22c55e" stroke-width="2"/>
           <line x1="100" y1="180" x2="120" y2="170" stroke="#22c55e" stroke-width="2"/>
           <text x="95" y="155" fill="#22c55e" font-size="9" font-family="monospace">M</text>
           <line x1="120" y1="170" x2="180" y2="170" stroke="#22c55e" stroke-width="2"/>
-          <!-- T1 Timer NC -->
           <line x1="180" y1="155" x2="180" y2="185" stroke="#ef4444" stroke-width="2"/>
           <line x1="180" y1="155" x2="200" y2="170" stroke="#ef4444" stroke-width="2"/>
           <text x="170" y="150" fill="#ef4444" font-size="9" font-family="monospace">T1</text>
@@ -912,15 +1050,13 @@
           <circle cx="280" cy="170" r="15" fill="none" stroke="#facc15" stroke-width="2" id="ladK2"/>
           <text x="272" y="175" fill="#facc15" font-size="11" font-family="monospace">K2</text>
           <line x1="295" y1="170" x2="470" y2="170" stroke="#22c55e" stroke-width="2"/>
-          <text x="20" y="165" fill="#22c55e" font-size="9" font-family="monospace">3</text>
-          
-          <!-- Rung 4: Delta Contactor K3 (via timer) -->
+
+          <!-- Rung 4: K3 Delta -->
           <line x1="30" y1="230" x2="100" y2="230" stroke="#22c55e" stroke-width="2"/>
           <line x1="100" y1="220" x2="120" y2="230" stroke="#22c55e" stroke-width="2"/>
           <line x1="100" y1="240" x2="120" y2="230" stroke="#22c55e" stroke-width="2"/>
           <text x="95" y="215" fill="#22c55e" font-size="9" font-family="monospace">M</text>
           <line x1="120" y1="230" x2="180" y2="230" stroke="#22c55e" stroke-width="2"/>
-          <!-- T1 Timer NO -->
           <line x1="180" y1="220" x2="200" y2="230" stroke="#22c55e" stroke-width="2"/>
           <line x1="180" y1="240" x2="200" y2="230" stroke="#22c55e" stroke-width="2"/>
           <text x="170" y="215" fill="#22c55e" font-size="9" font-family="monospace">T1</text>
@@ -928,25 +1064,22 @@
           <circle cx="280" cy="230" r="15" fill="none" stroke="#facc15" stroke-width="2" id="ladK3"/>
           <text x="272" y="235" fill="#facc15" font-size="11" font-family="monospace">K3</text>
           <line x1="295" y1="230" x2="470" y2="230" stroke="#22c55e" stroke-width="2"/>
-          <text x="20" y="225" fill="#22c55e" font-size="9" font-family="monospace">4</text>
-          
-          <!-- Timer Box T1 -->
-          <rect x="350" y="90" width="80" height="60" rx="6" fill="#1c2238" stroke="#facc15" stroke-width="1.5"/>
+
+          <!-- Timer Box -->
+          <rect x="350" y="90" width="90" height="70" rx="6" fill="#1c2238" stroke="#facc15" stroke-width="1.5"/>
           <text x="360" y="110" fill="#facc15" font-size="10" font-family="monospace">T1 STAR→Δ</text>
-          <text id="ladTimer" x="380" y="135" fill="#22d3ee" font-size="16" font-family="monospace" font-weight="bold">0.0s</text>
-          <text x="358" y="150" fill="#8892b0" font-size="8" font-family="monospace">SET: 5.0s</text>
+          <text id="ladTimer" x="375" y="138" fill="#22d3ee" font-size="16" font-family="monospace" font-weight="bold">0.0s</text>
+          <text x="360" y="152" fill="#8892b0" font-size="8" font-family="monospace">SET: 5.0s</text>
         </svg>
       </div>
-      
-      <!-- Control Buttons -->
+
       <div class="btn-row" style="margin-top:10px;">
         <button class="btn btn-primary" id="ladStart">▶ START</button>
         <button class="btn btn-danger" id="ladStop">⏹ STOP</button>
         <button class="btn btn-cool" id="ladFwd">⬆ FWD</button>
         <button class="btn btn-cool" id="ladRev">⬇ REV</button>
       </div>
-      
-      <!-- Status Indicators -->
+
       <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:6px; margin-top:10px;">
         <div class="inst-card" style="padding:8px;">
           <div class="inst-name" style="font-size:0.7rem;">M Relay</div>
@@ -965,916 +1098,33 @@
           <div class="inst-value" style="font-size:0.9rem;" id="indK3">OFF</div>
         </div>
       </div>
-      
-      <!-- Live Motor Readings -->
-      <div class="result-box" style="margin-top:10px;">
-        <div class="result-grid" id="ladResults">
-          <!-- filled by JS -->
-        </div>
-      </div>
-      
-      <div class="status" style="margin-top:8px;">
-        <div class="dot" id="ladDot"></div>
-        <span id="ladStatus">Ladder ready · Click START</span>
-      </div>
-    </div>
-      </div>
-    </div>
-  </div>
-    <!-- ========== PROTOCOL SIMULATION TAB ========== -->
-  <div class="content" id="tab-protocol">
-    <div class="card">
-      <div class="card-title">🔌 INDUSTRIAL PROTOCOL SIMULATION</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Protocol</label>
-          <select id="protoType">
-            <option value="modbus">Modbus TCP</option>
-            <option value="profibus">Profibus DP</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Slave / Node ID</label>
-          <input type="number" id="protoID" value="1">
-        </div>
-        <div class="input-row">
-          <label>IP / Address</label>
-          <input type="text" id="protoAddr" value="192.168.1.10">
-        </div>
-        <div class="input-row">
-          <label>Poll Interval (ms)</label>
-          <input type="number" id="protoPoll" value="500">
-        </div>
-        <div class="input-row">
-          <label>Register Start</label>
-          <input type="number" id="protoStart" value="40001">
-        </div>
-        <div class="input-row">
-          <label>Register Count</label>
-          <input type="number" id="protoCount" value="8">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="protoConnect">🔗 CONNECT</button>
-        <button class="btn btn-warn" id="protoDisconnect">🔌 DISCONNECT</button>
-        <button class="btn btn-danger" id="protoReset">⟲ RESET</button>
-      </div>
-      <div class="status" style="margin-top:8px;">
-        <span id="protoBadge" class="proto-badge tcp">MODBUS TCP</span>
-        <div class="dot" id="protoDot"></div>
-        <span id="protoStatus">Disconnected</span>
-      </div>
-      <div class="bus-monitor" id="busLog" style="margin-top:10px;">
-        <div><span class="ts">[SYSTEM]</span> Ready to connect...</div>
-      </div>
-    </div>
-    
-    <div class="card">
-      <div class="card-title">📊 REGISTER MAP (LIVE)</div>
-      <div style="overflow-x:auto;">
-        <table class="datasheet-table">
-          <thead>
-            <tr>
-              <th>Address</th>
-              <th>Tag Name</th>
-              <th>Value</th>
-              <th>Unit</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="protoRegisterBody">
-            <tr><td colspan="5" style="text-align:center;color:#8892b0;padding:20px;">No connection</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <!-- ========== MOTOR WIRE DATASHEET TAB ========== -->
-  <div class="content" id="tab-motorData">
-    <div class="card">
-      <div class="card-title">📋 MOTOR WIRE & BREAKER DATASHEET</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Motor HP</label>
-          <input type="number" id="mwHP" value="50">
-        </div>
-        <div class="input-row">
-          <label>Voltage (V)</label>
-          <input type="number" id="mwV" value="415">
-        </div>
-        <div class="input-row">
-          <label>Phase</label>
-          <select id="mwPhase">
-            <option value="3" selected>3-Phase</option>
-            <option value="1">1-Phase</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Starter</label>
-          <select id="mwStart">
-            <option value="dol">DOL</option>
-            <option value="sd" selected>Star-Delta</option>
-            <option value="soft">Soft Starter</option>
-            <option value="vfd">VFD</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Distance (m)</label>
-          <input type="number" id="mwDist" value="50">
-        </div>
-        <div class="input-row">
-          <label>Max VD (%)</label>
-          <input type="number" id="mwVD" value="3" step="0.5">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="mwCalc">📋 GENERATE</button>
-        <button class="btn btn-pdf" id="mwPDF">📄 SAVE PDF</button>
-      </div>
-      <div id="mwOutput" style="margin-top:12px;"></div>
-    </div>
-  </div>
-  <!-- ========== VFD TAB ========== -->
-  <div class="content" id="tab-vfd">
-    <div class="card">
-      <div class="card-title">🔄 VFD (VARIABLE FREQUENCY DRIVE) SIZING</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Motor FLC (A)</label>
-          <input type="number" id="vfdFLC" value="90">
-        </div>
-        <div class="input-row">
-          <label>Motor Voltage (V)</label>
-          <input type="number" id="vfdV" value="415">
-        </div>
-        <div class="input-row">
-          <label>Duty</label>
-          <select id="vfdDuty">
-            <option value="normal">Normal (100%)</option>
-            <option value="heavy">Heavy (110%)</option>
-            <option value="extreme">Extreme (150%)</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Ambient (°C)</label>
-          <input type="number" id="vfdAmb" value="40">
-        </div>
-        <div class="input-row">
-          <label>Altitude (m)</label>
-          <input type="number" id="vfdAlt" value="0">
-        </div>
-        <div class="input-row">
-          <label>Overload Time (s)</label>
-          <input type="number" id="vfdOL" value="60">
-        </div>
-        <div class="input-row">
-          <label>Cable Length (m)</label>
-          <input type="number" id="vfdCable" value="30">
-        </div>
-        <div class="input-row">
-          <label>Carrier Frequency (kHz)</label>
-          <input type="number" id="vfdCarrier" value="4">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="vfdCalc">⚡ SIZE VFD</button>
-        <button class="btn btn-ghost" id="vfdReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="vfdResults"></div>
-      </div>
-      <div class="info">
-        <b>Roman Urdu:</b> VFD ka size motor FLC se 10-25% zyada lena chahiye. Heavy duty ke liye 1.5x tak. Cable length zyada ho to dv/dt filter lagayein.
-      </div>
-    </div>
-  </div>
-    <!-- ========== GEARBOX TAB ========== -->
-  <div class="content" id="tab-gear">
-    <div class="card">
-      <div class="card-title">⚙️ GEARBOX SIZING</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Input Power (kW)</label>
-          <input type="number" id="gearKW" value="30">
-        </div>
-        <div class="input-row">
-          <label>Input Speed (RPM)</label>
-          <input type="number" id="gearRPMin" value="1450">
-        </div>
-        <div class="input-row">
-          <label>Output Speed (RPM)</label>
-          <input type="number" id="gearRPMout" value="100">
-        </div>
-        <div class="input-row">
-          <label>Service Factor</label>
-          <input type="number" id="gearSF" value="1.5" step="0.1">
-        </div>
-        <div class="input-row">
-          <label>Gear Type</label>
-          <select id="gearType">
-            <option value="helical">Helical (97%)</option>
-            <option value="bevel">Bevel-Helical (95%)</option>
-            <option value="worm">Worm (75%)</option>
-            <option value="planetary">Planetary (96%)</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Operating Hours/day</label>
-          <input type="number" id="gearHours" value="16">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="gearCalc">⚙️ CALCULATE</button>
-        <button class="btn btn-ghost" id="gearReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="gearResults"></div>
-      </div>
-      <div class="info">
-        <b>Roman Urdu:</b> Gearbox ka ratio = input RPM / output RPM. Service factor load ke hisaab se 1.0 se 2.5 tak. Torque output mein barhta hai, speed ghatti hai.
-      </div>
-    </div>
-  </div>
 
-  <!-- ========== BLOWER TAB ========== -->
-  <div class="content" id="tab-blower">
-    <div class="card">
-      <div class="card-title">💨 BLOWER / FAN CALCULATOR</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Air Flow (CFM)</label>
-          <input type="number" id="blowCFM" value="5000">
-        </div>
-        <div class="input-row">
-          <label>Static Pressure (inWC)</label>
-          <input type="number" id="blowSP" value="8" step="0.1">
-        </div>
-        <div class="input-row">
-          <label>Air Density (kg/m³)</label>
-          <input type="number" id="blowDensity" value="1.2" step="0.01">
-        </div>
-        <div class="input-row">
-          <label>Fan Efficiency (%)</label>
-          <input type="number" id="blowEff" value="65">
-        </div>
-        <div class="input-row">
-          <label>Motor Efficiency (%)</label>
-          <input type="number" id="blowMotorEff" value="92">
-        </div>
-        <div class="input-row">
-          <label>Temperature (°C)</label>
-          <input type="number" id="blowTemp" value="30">
-        </div>
-        <div class="input-row">
-          <label>Altitude (m)</label>
-          <input type="number" id="blowAlt" value="0">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="blowerCalc">💨 CALCULATE</button>
-        <button class="btn btn-ghost" id="blowerReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="blowerResults"></div>
-      </div>
-      <div class="info">
-        <b>Affinity Laws:</b> Flow ∝ Speed, Pressure ∝ Speed², Power ∝ Speed³. Speed 10% barhao → Power 33% barhta hai!
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== CONVEYOR TAB ========== -->
-  <div class="content" id="tab-conveyor">
-    <div class="card">
-      <div class="card-title">🏭 BELT CONVEYOR CALCULATOR</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Capacity (TPH)</label>
-          <input type="number" id="convTPH" value="100">
-        </div>
-        <div class="input-row">
-          <label>Belt Speed (m/s)</label>
-          <input type="number" id="convSpeed" value="1.5" step="0.1">
-        </div>
-        <div class="input-row">
-          <label>Length (m)</label>
-          <input type="number" id="convLength" value="50">
-        </div>
-        <div class="input-row">
-          <label>Lift Height (m)</label>
-          <input type="number" id="convLift" value="10">
-        </div>
-        <div class="input-row">
-          <label>Incline Angle (°)</label>
-          <input type="number" id="convAngle" value="12">
-        </div>
-        <div class="input-row">
-          <label>Material Density (t/m³)</label>
-          <input type="number" id="convDensity" value="1.6" step="0.1">
-        </div>
-        <div class="input-row">
-          <label>Friction Coefficient</label>
-          <input type="number" id="convFriction" value="0.03" step="0.005">
-        </div>
-        <div class="input-row">
-          <label>Drive Efficiency (%)</label>
-          <input type="number" id="convEff" value="90">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="convCalc">🏭 CALCULATE</button>
-        <button class="btn btn-ghost" id="convReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="conveyorResults"></div>
-      </div>
-      <div class="info">
-        <b>Roman Urdu:</b> Conveyor motor HP nikalne ke liye capacity, speed, length, lift sab ka role hai. Incline angle 18° se zyada na rakhein — material wapas gir jayega.
-      </div>
-    </div>
-  </div>
-    <!-- ========== STARTER TAB ========== -->
-  <div class="content" id="tab-starter">
-    <div class="card">
-      <div class="card-title">🚀 STARTER SIZING (DOL / Y-Δ / SOFT / VFD)</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Motor kW</label>
-          <input type="number" id="stKW" value="37">
-        </div>
-        <div class="input-row">
-          <label>Motor FLC (A)</label>
-          <input type="number" id="stFLC" value="70">
-        </div>
-        <div class="input-row">
-          <label>Voltage (V)</label>
-          <input type="number" id="stV" value="415">
-        </div>
-        <div class="input-row">
-          <label>Starter Type</label>
-          <select id="stType">
-            <option value="dol">DOL</option>
-            <option value="sd" selected>Star-Delta</option>
-            <option value="soft">Soft Starter</option>
-            <option value="vfd">VFD</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Start Time (s)</label>
-          <input type="number" id="stTime" value="10">
-        </div>
-        <div class="input-row">
-          <label>Starts per Hour</label>
-          <input type="number" id="stStarts" value="6">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="stCalc">🚀 CALCULATE</button>
-        <button class="btn btn-ghost" id="stReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="starterResults"></div>
-      </div>
-      <div class="info">
-        <b>Rule of Thumb:</b> Motor &lt; 5kW = DOL. 5-30kW = Star-Delta. &gt;30kW = Soft Starter ya VFD. VFD best hai — smooth start, energy saving.
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== BREAKER TAB ========== -->
-  <div class="content" id="tab-breaker">
-    <div class="card">
-      <div class="card-title">⚡ BREAKER SELECTION (ACB / VCB / MCCB / MCB)</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Load Current (A)</label>
-          <input type="number" id="brkLoad" value="400">
-        </div>
-        <div class="input-row">
-          <label>System Voltage (V)</label>
-          <input type="number" id="brkV" value="415">
-        </div>
-        <div class="input-row">
-          <label>Breaker Type</label>
-          <select id="brkType">
-            <option value="mcb">MCB (≤125A)</option>
-            <option value="mccb" selected>MCCB (16-1600A)</option>
-            <option value="acb">ACB (630-6300A)</option>
-            <option value="vcb">VCB (11kV-33kV)</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Breaking Capacity (kA)</label>
-          <input type="number" id="brkIcu" value="36">
-        </div>
-        <div class="input-row">
-          <label>Utilization Category</label>
-          <select id="brkCat">
-            <option value="b">B (Resistive)</option>
-            <option value="a" selected>A (Mixed)</option>
-            <option value="d">D (Motor/Transformer)</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Poles</label>
-          <select id="brkPoles">
-            <option value="3" selected>3P</option>
-            <option value="4">4P</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Ambient (°C)</label>
-          <input type="number" id="brkAmb" value="40">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="brkCalc">⚡ SELECT BREAKER</button>
-        <button class="btn btn-ghost" id="brkReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="breakerResults"></div>
-      </div>
-      <div class="info">
-        <b>Roman Urdu:</b> Breaker ka rating load current se 1.25x zyada hona chahiye. Icu system ke short circuit se zyada ho. Type D motor ke liye (inrush current zyada).
-      </div>
-    </div>
-  </div>
-    <!-- ========== BUSBAR TAB ========== -->
-  <div class="content" id="tab-busbar">
-    <div class="card">
-      <div class="card-title">📏 BUSBAR SIZING (Cu / Al)</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Current (A)</label>
-          <input type="number" id="bbCurrent" value="800">
-        </div>
-        <div class="input-row">
-          <label>Material</label>
-          <select id="bbMaterial">
-            <option value="cu" selected>Copper (Cu)</option>
-            <option value="al">Aluminium (Al)</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Busbar Width (mm)</label>
-          <input type="number" id="bbWidth" value="50">
-        </div>
-        <div class="input-row">
-          <label>Busbar Thickness (mm)</label>
-          <input type="number" id="bbThick" value="10">
-        </div>
-        <div class="input-row">
-          <label>Number in Parallel</label>
-          <input type="number" id="bbParallel" value="1">
-        </div>
-        <div class="input-row">
-          <label>Ambient (°C)</label>
-          <input type="number" id="bbAmb" value="40">
-        </div>
-        <div class="input-row">
-          <label>Temp Rise Limit (K)</label>
-          <input type="number" id="bbRise" value="50">
-        </div>
-        <div class="input-row">
-          <label>Enclosure</label>
-          <select id="bbEnclosure">
-            <option value="open">Open Air</option>
-            <option value="ip31">IP31 Enclosed</option>
-            <option value="ip54" selected>IP54 Enclosed</option>
-            <option value="ip65">IP65 Enclosed</option>
-          </select>
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="bbCalc">📏 CALCULATE</button>
-        <button class="btn btn-ghost" id="bbReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="busbarResults"></div>
-      </div>
-      <div class="info">
-        <b>Current Density:</b> Cu = 1.0-1.6 A/mm², Al = 0.8-1.2 A/mm². IP54 enclosure mein derating 0.85-0.90x.
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== WIRE TAB ========== -->
-  <div class="content" id="tab-wire">
-    <div class="card">
-      <div class="card-title">🔧 CABLE / WIRE SIZING</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Load Current (A)</label>
-          <input type="number" id="wireCurrent" value="100">
-        </div>
-        <div class="input-row">
-          <label>Voltage (V)</label>
-          <input type="number" id="wireV" value="415">
-        </div>
-        <div class="input-row">
-          <label>Phase</label>
-          <select id="wirePhase">
-            <option value="3" selected>3-Phase</option>
-            <option value="1">1-Phase</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Length (m)</label>
-          <input type="number" id="wireLen" value="80">
-        </div>
-        <div class="input-row">
-          <label>Max VD Allowed (%)</label>
-          <input type="number" id="wireVD" value="3" step="0.5">
-        </div>
-        <div class="input-row">
-          <label>Conductor</label>
-          <select id="wireCond">
-            <option value="cu" selected>Copper</option>
-            <option value="al">Aluminium</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Insulation</label>
-          <select id="wireIns">
-            <option value="xlpe" selected>XLPE (90°C)</option>
-            <option value="pvc">PVC (70°C)</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Installation</label>
-          <select id="wireInstall">
-            <option value="tray">Cable Tray</option>
-            <option value="conduit">Conduit</option>
-            <option value="buried" selected>Buried</option>
-            <option value="air">Free Air</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Power Factor</label>
-          <input type="number" id="wirePF" value="0.85" step="0.01">
-        </div>
-        <div class="input-row">
-          <label>Ambient (°C)</label>
-          <input type="number" id="wireAmb" value="40">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="wireCalc">🔧 CALCULATE</button>
-        <button class="btn btn-ghost" id="wireReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="wireResults"></div>
-      </div>
-      <div class="info">
-        <b>IEC Sizes:</b> 1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150, 185, 240, 300 mm². Voltage drop 3% se kam rakhein.
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== LOAD TAB ========== -->
-  <div class="content" id="tab-load">
-    <div class="card">
-      <div class="card-title">📊 LOAD SCHEDULE / PANEL DESIGN</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Total Connected Load (kW)</label>
-          <input type="number" id="loadTotal" value="500">
-        </div>
-        <div class="input-row">
-          <label>Demand Factor</label>
-          <input type="number" id="loadDF" value="0.8" step="0.05">
-        </div>
-        <div class="input-row">
-          <label>Diversity Factor</label>
-          <input type="number" id="loadDiv" value="0.9" step="0.05">
-        </div>
-        <div class="input-row">
-          <label>Power Factor</label>
-          <input type="number" id="loadPF" value="0.85" step="0.01">
-        </div>
-        <div class="input-row">
-          <label>Voltage (V)</label>
-          <input type="number" id="loadV" value="415">
-        </div>
-        <div class="input-row">
-          <label>Target PF</label>
-          <input type="number" id="loadTargetPF" value="0.95" step="0.01">
-        </div>
-        <div class="input-row">
-          <label>Future Expansion (%)</label>
-          <input type="number" id="loadFuture" value="20">
-        </div>
-        <div class="input-row">
-          <label>Transformer Size (kVA)</label>
-          <input type="number" id="loadTrafo" value="630">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="loadCalc">📊 CALCULATE</button>
-        <button class="btn btn-ghost" id="loadReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="loadResults"></div>
-      </div>
-      <div class="info">
-        <b>PF Correction:</b> Capacitor kVAr = kW × (tan φ1 − tan φ2). Transformer 80% load pe best efficiency deta hai.
-      </div>
-    </div>
-  </div>
-   <!-- ========== INSTRUMENTS TAB (UPGRADED) ========== -->
-  <div class="content" id="tab-instrument">
-    <div class="card">
-      <div class="card-title">🎛️ INSTRUMENTATION · 4-20mA LOOP · LIVE PROCESS</div>
-      
-      <!-- LIVE PROCESS DISPLAY -->
-      <div class="inst-grid" id="instLiveGrid">
-        <!-- filled by JS -->
-      </div>
-      
-      <div class="btn-row" style="margin-top:10px;">
-        <button class="btn btn-primary" id="instStart">▶ START LIVE</button>
-        <button class="btn btn-warn" id="instPause">⏸ PAUSE</button>
-        <button class="btn btn-danger" id="instStop">⏹ STOP</button>
-        <button class="btn btn-pdf" id="instPDF">📄 SAVE PDF</button>
-      </div>
-      
-      <div class="status" style="margin-top:8px;">
-        <div class="dot" id="instDot"></div>
-        <span id="instStatus">Instruments idle · Click START LIVE</span>
-      </div>
-    </div>
-    
-    <!-- 4-20mA LOOP CALCULATOR -->
-    <div class="card">
-      <div class="card-title">📊 4-20mA LOOP CALCULATOR</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Process Variable</label>
-          <select id="maVar">
-            <option value="pressure">Pressure (bar)</option>
-            <option value="temperature">Temperature (°C)</option>
-            <option value="flow">Flow (m³/h)</option>
-            <option value="level">Level (%)</option>
-            <option value="ratio">Ratio (0-1)</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Range Min</label>
-          <input type="number" id="maMin" value="0">
-        </div>
-        <div class="input-row">
-          <label>Range Max</label>
-          <input type="number" id="maMax" value="100">
-        </div>
-        <div class="input-row">
-          <label>Process Value</label>
-          <input type="number" id="maPV" value="50">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="maCalc">📊 CALCULATE</button>
-        <button class="btn btn-ghost" id="maReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="maResults"></div>
-      </div>
-      <div class="info">
-        <b>4-20mA Formula:</b> I(mA) = 4 + 16 × (PV − Min) / (Max − Min). Live zero = 4mA (0%), Full scale = 20mA (100%).
-      </div>
-    </div>
-        <!-- CT / PT METERING -->
-    <div class="card">
-      <div class="card-title">⚡ CT / PT METERING</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>CT Primary (A)</label>
-          <input type="number" id="instPrimary" value="400">
-        </div>
-        <div class="input-row">
-          <label>CT Secondary</label>
-          <select id="instSec">
-            <option value="1">1 A</option>
-            <option value="5" selected>5 A</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>CT Class</label>
-          <select id="instClass">
-            <option value="0.5">0.5</option>
-            <option value="1" selected>1.0</option>
-            <option value="5P10">5P10</option>
-            <option value="10P10">10P10</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Meter Accuracy</label>
-          <select id="instAcc">
-            <option value="0.5">0.5</option>
-            <option value="1" selected>1.0</option>
-            <option value="0.2">0.2</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Burden (VA)</label>
-          <input type="number" id="instBurden" value="15">
-        </div>
-        <div class="input-row">
-          <label>PT Primary (V)</label>
-          <input type="number" id="instPTPrim" value="11000">
-        </div>
-        <div class="input-row">
-          <label>PT Secondary (V)</label>
-          <input type="number" id="instPTSec" value="110">
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="instCalc">⚡ CALCULATE</button>
-        <button class="btn btn-ghost" id="instReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="instResults"></div>
-      </div>
-    </div>
-    <!-- BEARING & TEMPERATURE -->
-    <div class="card">
-      <div class="card-title">🔩 BEARING HEALTH MONITOR</div>
-      <div class="inst-grid" id="bearingGrid"></div>
-    </div>
-  </div>
-  <!-- ========== LIVE SIMULATION TAB ========== -->
-  <div class="content" id="tab-simulation">
-    <div class="card">
-      <div class="card-title">📈 LIVE MOTOR SIMULATION</div>
-      <div class="input-grid">
-        <div class="input-row">
-          <label>Motor FLC (A)</label>
-          <input type="number" id="simFLC" value="100">
-        </div>
-        <div class="input-row">
-          <label>Nominal Voltage (V)</label>
-          <input type="number" id="simV" value="415">
-        </div>
-        <div class="input-row">
-          <label>Load %</label>
-          <input type="number" id="simLoad" value="75" min="0" max="150">
-        </div>
-        <div class="input-row">
-          <label>Ambient (°C)</label>
-          <input type="number" id="simAmb" value="40">
-        </div>
-        <div class="input-row">
-          <label>Sim Speed</label>
-          <select id="simSpeed">
-            <option value="1">1× Normal</option>
-            <option value="5" selected>5× Fast</option>
-            <option value="10">10× Turbo</option>
-          </select>
-        </div>
-        <div class="input-row">
-          <label>Fault Injection</label>
-          <select id="simFault">
-            <option value="none" selected>None</option>
-            <option value="overload">Overload</option>
-            <option value="phaseLoss">Phase Loss</option>
-            <option value="earthFault">Earth Fault</option>
-            <option value="overheat">Overheat</option>
-          </select>
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="simStart">▶ START SIM</button>
-        <button class="btn btn-warn" id="simPause">⏸ PAUSE</button>
-        <button class="btn btn-danger" id="simStop">⏹ STOP</button>
-        <button class="btn btn-ghost" id="simReset">⟲ RESET</button>
-      </div>
-      <div class="result-box">
-        <div class="result-grid" id="simResults"></div>
-      </div>
-      <div class="chart-wrap" style="margin-top:10px;">
-        <svg viewBox="0 0 400 140" id="simChart">
-          <defs>
-            <linearGradient id="gradCur" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.6"/>
-              <stop offset="100%" stop-color="#22d3ee" stop-opacity="0"/>
-            </linearGradient>
-            <linearGradient id="gradTemp" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#ef4444" stop-opacity="0.6"/>
-              <stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <rect width="400" height="140" fill="#0a0e1a"/>
-          <g id="simGrid"></g>
-          <path id="simPathCur" fill="none" stroke="#22d3ee" stroke-width="2"/>
-          <path id="simPathTemp" fill="none" stroke="#ef4444" stroke-width="2"/>
-          <text x="10" y="15" fill="#22d3ee" font-size="9" font-family="monospace">Current (A)</text>
-          <text x="330" y="15" fill="#ef4444" font-size="9" font-family="monospace">Temp (°C)</text>
-        </svg>
-      </div>
-      <div class="status">
-        <div class="dot" id="simDot"></div>
-        <span id="simStatus">READY TO START</span>
-      </div>
-    </div>
-  </div>
-    <!-- ========== TREND TAB ========== -->
-  <div class="content" id="tab-trend">
-    <div class="card">
-      <div class="card-title">📉 TREND CHART (3-PHASE VOLTAGE + CURRENT)</div>
-      <div class="chart-wrap">
-        <svg viewBox="0 0 400 200" id="trendChart">
-          <defs>
-            <filter id="glowT">
-              <feGaussianBlur stdDeviation="1.5" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-          <rect width="400" height="200" fill="#0a0e1a"/>
-          <g id="trendGrid"></g>
-          <!-- R phase current -->
-          <path id="trendR" fill="none" stroke="#ef4444" stroke-width="1.5" filter="url(#glowT)"/>
-          <!-- Y phase current -->
-          <path id="trendY" fill="none" stroke="#facc15" stroke-width="1.5" filter="url(#glowT)"/>
-          <!-- B phase current -->
-          <path id="trendB" fill="none" stroke="#3b82f6" stroke-width="1.5" filter="url(#glowT)"/>
-          <!-- Voltage (scaled) -->
-          <path id="trendV" fill="none" stroke="#22c55e" stroke-width="1.5" stroke-dasharray="4 2"/>
-          <text x="10" y="14" fill="#ef4444" font-size="9" font-family="monospace">R</text>
-          <text x="28" y="14" fill="#facc15" font-size="9" font-family="monospace">Y</text>
-          <text x="46" y="14" fill="#3b82f6" font-size="9" font-family="monospace">B</text>
-          <text x="70" y="14" fill="#22c55e" font-size="9" font-family="monospace">V</text>
-        </svg>
-      </div>
-      <div class="btn-row" style="margin-top:10px;">
-        <button class="btn btn-primary" id="trendStart">▶ START TREND</button>
-        <button class="btn btn-danger" id="trendStop">⏹ STOP</button>
-        <button class="btn btn-cool" id="trendCSV">📥 EXPORT CSV</button>
-        <button class="btn btn-ghost" id="trendClear">⟲ CLEAR</button>
-      </div>
-      <div class="status" style="margin-top:8px;">
-        <div class="dot ok" id="trendDot"></div>
-        <span id="trendStatus">Trend ready · Click START</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ========== LOG TAB ========== -->
-  <div class="content" id="tab-log">
-    <div class="card">
-      <div class="card-title">📋 SYSTEM DATA LOG</div>
-      <div class="btn-row">
-        <button class="btn btn-primary" id="logExport">📥 EXPORT CSV</button>
-        <button class="btn btn-warn" id="logPause">⏸ PAUSE LOG</button>
-        <button class="btn btn-danger" id="logClear">🗑 CLEAR LOG</button>
-      </div>
-      <div class="log-wrap" style="margin-top:10px;">
-        <table class="log-table">
-          <thead>
-            <tr>
-              <th>Time</th>
-              <th>V (V)</th>
-              <th>I (A)</th>
-              <th>PF</th>
-              <th>kW</th>
-              <th>Temp</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody id="logBody">
-            <tr><td colspan="7" style="text-align:center;color:#8892b0;padding:20px;">No data yet. Start simulation.</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="info" style="margin-top:10px;">
-        <b>Auto Log:</b> Simulation chalu hone pe har second data log hoga. CSV export karke Excel mein analysis kar sakte hain.
-      </div>
+      <div class="result-box" style="margin-top:10px;"><div class="result-grid" id="ladResults"></div></div>
+      <div class="status" style="margin-top:8px;"><div class="dot" id="ladDot"></div><span id="ladStatus">Ladder ready · Click START</span></div>
     </div>
   </div>
 
   <div class="footer">
-    ⚡ ELECTRICAL ENGINEERING LAB · By <b>Lazy Owl 🦉</b> · All-in-One Calculator
+    ⚡ ELECTRICAL ENGINEERING LAB · By <b>Snow Owl 🦉</b> · All-in-One Calculator
+    <div style="margin-top:4px; font-size:0.6rem; opacity:0.6; letter-spacing:3px;">— Yasir_Khan —</div>
   </div>
 
 </div><!-- /.app -->
+
 <script>
 (function(){
   'use strict';
 
-  // ============ HELPERS ============
   const $ = id => document.getElementById(id);
   const fmt = (n, d = 2) => Number(n).toFixed(d);
   const fmtInt = n => Math.round(n).toLocaleString();
-  const setVal = (id, v, unit) => {
-    const el = $(id);
-    if (el) el.querySelector('.value').textContent = v + (unit ? ' ' : '') + (unit || '');
-  };
   const makeResult = (label, value, unit, cls) => `
     <div class="result-item ${cls || ''}">
       <div class="label">${label}</div>
       <div class="value">${value}${unit ? ' <span class="unit">' + unit + '</span>' : ''}</div>
     </div>`;
-  const clearResults = id => { const el = $(id); if (el) el.innerHTML = ''; };
 
-  // ============ TABS ============
+  // TABS
   const tabBtns = document.querySelectorAll('.tab-btn');
   tabBtns.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -1886,7 +1136,7 @@
     });
   });
 
-  // ============ MOTOR CALCULATOR ============
+  // MOTOR
   function calcMotor() {
     let hp = +$('motorHP').value;
     const unit = $('motorUnit').value;
@@ -1898,51 +1148,23 @@
     const poles = +$('motorPoles').value;
     const hz = +$('motorHz').value;
     const startM = $('motorStart').value;
-
-    // Convert to kW
-    let kW;
-    if (unit === 'hp') { kW = hp * 0.746; } else { kW = hp; }
-    const hpVal = kW / 0.746;
-
-    // Sync speed
+    let kW = unit === 'hp' ? hp * 0.746 : hp;
     const syncRPM = (120 * hz) / poles;
     const fullRPM = syncRPM * 0.96;
-
-    // FLC
-    let FLC;
-    if (phase === 3) {
-      FLC = (kW * 1000) / (Math.sqrt(3) * V * eff * pf);
-    } else {
-      FLC = (kW * 1000) / (V * eff * pf);
-    }
-    const FLCsf = FLC * sf;
-
-    // Starting current multiplier
+    let FLC = phase === 3 ? (kW * 1000) / (Math.sqrt(3) * V * eff * pf) : (kW * 1000) / (V * eff * pf);
     const mult = { dol: 6, sd: 2.5, soft: 3, vfd: 1.1 }[startM];
     const startCur = FLC * mult;
-
-    // Torque
     const torqueNm = (kW * 9550) / fullRPM;
-
-    // Cable size (rule of thumb: 3A/mm²)
     const minCable = FLC / 3;
     const stdCables = [1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400];
     const cableSize = stdCables.find(s => s >= minCable) || 400;
-
-    // Recommended breaker
     const stdBreakers = [6,10,16,20,25,32,40,50,63,80,100,125,160,200,250,320,400,500,630,800,1000,1250,1600];
     const brkRating = stdBreakers.find(b => b >= FLC * 1.25) || 1600;
-
-    // Contactor
     const contSize = stdBreakers.find(b => b >= FLC * 1.1) || 1600;
-
-    // Output
-    const r = $('motorResults');
-    r.innerHTML = [
+    $('motorResults').innerHTML = [
       makeResult('Rated Power', fmt(kW, 2), 'kW', 'highlight'),
-      makeResult('Rated HP', fmt(hpVal, 2), 'HP'),
+      makeResult('Rated HP', fmt(kW/0.746, 2), 'HP'),
       makeResult('Full Load Current', fmt(FLC, 1), 'A', 'highlight'),
-      makeResult('FLC × SF', fmt(FLCsf, 1), 'A'),
       makeResult('Starting Current', fmt(startCur, 1), 'A', startM === 'dol' ? 'warn' : 'good'),
       makeResult('Sync Speed', fmtInt(syncRPM), 'RPM'),
       makeResult('Full Load Speed', fmtInt(fullRPM), 'RPM'),
@@ -1950,19 +1172,15 @@
       makeResult('Cable Size (min)', cableSize, 'mm²', 'good'),
       makeResult('Breaker (MCCB)', brkRating, 'A', 'highlight'),
       makeResult('Contactor Size', contSize, 'A'),
-      makeResult('kVA (Running)', fmt(kW / pf, 2), 'kVA'),
     ].join('');
-
-    $('motorInfo').innerHTML = `<b>Result:</b> Motor ${fmt(kW,1)} kW, FLC ${fmt(FLC,1)} A. Recommended cable ${cableSize} mm², MCCB ${brkRating} A, Contactor ${contSize} A. Starting method: ${startM.toUpperCase()} (${mult}× FLC).`;
   }
   $('motorCalc').addEventListener('click', calcMotor);
   $('motorReset').addEventListener('click', () => {
     $('motorHP').value = 50; $('motorV').value = 415; $('motorEff').value = 92;
-    $('motorPF').value = 0.86; $('motorSF').value = 1.15;
-    calcMotor();
+    $('motorPF').value = 0.86; $('motorSF').value = 1.15; calcMotor();
   });
 
-  // ============ VFD ============
+  // VFD
   function calcVFD() {
     const FLC = +$('vfdFLC').value;
     const V = +$('vfdV').value;
@@ -1970,81 +1188,47 @@
     const amb = +$('vfdAmb').value;
     const alt = +$('vfdAlt').value;
     const cable = +$('vfdCable').value;
-    const carrier = +$('vfdCarrier').value;
-
     const dutyMult = { normal: 1.1, heavy: 1.25, extreme: 1.5 }[duty];
     const vfdA = FLC * dutyMult;
-
-    // Derating for ambient (above 40°C: 2% per °C)
     const ambDerate = amb > 40 ? 1 - (amb - 40) * 0.02 : 1;
-    // Derating for altitude (above 1000m: 1% per 100m)
     const altDerate = alt > 1000 ? 1 - (alt - 1000) / 100 * 0.01 : 1;
-
     const vfdSize = vfdA / (ambDerate * altDerate);
-
-    // Recommended VFD rating
     const stdVFD = [0.75,1.5,2.2,3.7,5.5,7.5,11,15,18.5,22,30,37,45,55,75,90,110,132,160,200,250,315,400,500,630];
     const kwApprox = (vfdSize * Math.sqrt(3) * V * 0.86 * 0.92) / 1000;
     const recVFD = stdVFD.find(s => s >= kwApprox) || 630;
-
-    // dv/dt filter recommendation
-    const needFilter = cable > 30 || carrier > 4;
-
-    // Cable size for VFD (oversized for harmonics)
-    const vfdCable = FLC * 1.25 / 3;
-
-    const r = $('vfdResults');
-    r.innerHTML = [
-      makeResult('Base FLC', FLC, 'A'),
-      makeResult('Duty Multiplier', dutyMult + '×', ''),
+    const needFilter = cable > 30 || +$('vfdCarrier').value > 4;
+    $('vfdResults').innerHTML = [
       makeResult('Required VFD (A)', fmt(vfdA, 1), 'A', 'highlight'),
-      makeResult('Ambient Derate', fmt(ambDerate * 100, 0), '%'),
-      makeResult('Altitude Derate', fmt(altDerate * 100, 0), '%'),
       makeResult('Adjusted VFD (A)', fmt(vfdSize, 1), 'A'),
       makeResult('Approx VFD (kW)', fmt(kwApprox, 1), 'kW', 'highlight'),
       makeResult('Recommended', recVFD, 'kW', 'good'),
-      makeResult('Min Cable', fmt(vfdCable, 1), 'mm²'),
       makeResult('dV/dt Filter', needFilter ? 'REQUIRED' : 'Not needed', '', needFilter ? 'warn' : 'good'),
     ].join('');
-
-    $('vfdResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
   $('vfdCalc').addEventListener('click', calcVFD);
   $('vfdReset').addEventListener('click', () => {
     $('vfdFLC').value = 90; $('vfdV').value = 415; $('vfdAmb').value = 40;
-    $('vfdAlt').value = 0; $('vfdCable').value = 30; $('vfdCarrier').value = 4;
-    calcVFD();
+    $('vfdAlt').value = 0; $('vfdCable').value = 30; $('vfdCarrier').value = 4; calcVFD();
   });
 
-  // ============ GEARBOX ============
+  // GEARBOX
   function calcGear() {
     const kW = +$('gearKW').value;
     const rpmIn = +$('gearRPMin').value;
     const rpmOut = +$('gearRPMout').value;
     const sf = +$('gearSF').value;
     const type = $('gearType').value;
-    const effMap = { helical: 0.97, bevel: 0.95, worm: 0.75, planetary: 0.96 };
-    const eff = effMap[type];
-
+    const eff = { helical: 0.97, bevel: 0.95, worm: 0.75, planetary: 0.96 }[type];
     const ratio = rpmIn / rpmOut;
     const torqueIn = (kW * 9550) / rpmIn;
     const torqueOut = (kW * 9550 * eff) / rpmOut;
-    const outKW = kW * eff;
-    const lossKW = kW - outKW;
-    const requiredKW = kW * sf;
-
-    const r = $('gearResults');
-    r.innerHTML = [
+    $('gearResults').innerHTML = [
       makeResult('Gear Ratio', fmt(ratio, 3) + ':1', '', 'highlight'),
       makeResult('Input Torque', fmt(torqueIn, 1), 'N·m'),
       makeResult('Output Torque', fmt(torqueOut, 1), 'N·m', 'highlight'),
       makeResult('Output Speed', rpmOut, 'RPM'),
       makeResult('Efficiency', fmt(eff * 100, 1), '%'),
-      makeResult('Output Power', fmt(outKW, 2), 'kW'),
-      makeResult('Loss (Heat)', fmt(lossKW, 2), 'kW', lossKW > kW * 0.1 ? 'warn' : 'good'),
-      makeResult('Service Factor', sf, ''),
-      makeResult('Required Rating', fmt(requiredKW, 2), 'kW', 'highlight'),
-      makeResult('Gear Type', type.toUpperCase(), ''),
+      makeResult('Required Rating', fmt(kW * sf, 2), 'kW', 'highlight'),
     ].join('');
   }
   $('gearCalc').addEventListener('click', calcGear);
@@ -2053,99 +1237,55 @@
     $('gearSF').value = 1.5; calcGear();
   });
 
-  // ============ BLOWER ============
+  // BLOWER
   function calcBlower() {
     const cfm = +$('blowCFM').value;
     const sp = +$('blowSP').value;
-    const density = +$('blowDensity').value;
     const fanEff = +$('blowEff').value / 100;
     const motorEff = +$('blowMotorEff').value / 100;
-    const temp = +$('blowTemp').value;
-    const alt = +$('blowAlt').value;
-
-    // Convert
     const m3s = cfm * 0.000471947;
     const pa = sp * 249.089;
-
-    // Air power
-    const airPower = m3s * pa;
-    const bkW = airPower / 1000;
-    const bhp = bkW / 0.746;
-
-    // Shaft & motor power
+    const bkW = (m3s * pa) / 1000;
     const shaftKW = bkW / fanEff;
     const motorKW = shaftKW / motorEff;
-    const motorHP = motorKW / 0.746;
-
-    // Density correction
-    const tempK = temp + 273.15;
-    const densityCorr = 1.2 / (density * (293.15 / tempK));
-
-    // Recommended motor
     const stdMotors = [0.75,1.1,1.5,2.2,3,3.7,5.5,7.5,11,15,18.5,22,30,37,45,55,75,90,110,132,160,200];
     const recMotor = stdMotors.find(s => s >= motorKW * 1.15) || 200;
-
-    const r = $('blowerResults');
-    r.innerHTML = [
-      makeResult('Air Flow', cfm, 'CFM'),
-      makeResult('Static Pressure', sp, 'inWC'),
+    $('blowerResults').innerHTML = [
       makeResult('Air Power', fmt(bkW, 2), 'kW'),
-      makeResult('Brake HP (BHP)', fmt(bhp, 2), 'HP', 'highlight'),
+      makeResult('Brake HP (BHP)', fmt(bkW/0.746, 2), 'HP', 'highlight'),
       makeResult('Shaft Power', fmt(shaftKW, 2), 'kW'),
       makeResult('Motor Power', fmt(motorKW, 2), 'kW', 'highlight'),
-      makeResult('Motor HP', fmt(motorHP, 2), 'HP'),
       makeResult('Recommended', recMotor, 'kW', 'good'),
-      makeResult('Density Factor', fmt(densityCorr, 3), ''),
-      makeResult('Fan Efficiency', fmt(fanEff * 100, 0), '%'),
     ].join('');
   }
   $('blowerCalc').addEventListener('click', calcBlower);
   $('blowerReset').addEventListener('click', () => {
-    $('blowCFM').value = 5000; $('blowSP').value = 8; $('blowDensity').value = 1.2;
-    $('blowEff').value = 65; $('blowMotorEff').value = 92; $('blowTemp').value = 30;
-    $('blowAlt').value = 0; calcBlower();
+    $('blowCFM').value = 5000; $('blowSP').value = 8; $('blowEff').value = 65;
+    $('blowMotorEff').value = 92; calcBlower();
   });
 
-  // ============ CONVEYOR ============
+  // CONVEYOR
   function calcConveyor() {
     const tph = +$('convTPH').value;
     const speed = +$('convSpeed').value;
     const L = +$('convLength').value;
     const H = +$('convLift').value;
     const angle = +$('convAngle').value;
-    const density = +$('convDensity').value;
     const fric = +$('convFriction').value;
     const eff = +$('convEff').value / 100;
-
-    // Mass flow
     const kgs = (tph * 1000) / 3600;
-
-    // Resistance forces
-    const F1 = fric * 9.81 * (50 + kgs) * L; // belt + material
-    const F2 = kgs * 9.81 * H; // lift
-    const F3 = 0.02 * 9.81 * kgs * L * Math.sin(angle * Math.PI / 180); // incline
-
+    const F1 = fric * 9.81 * (50 + kgs) * L;
+    const F2 = kgs * 9.81 * H;
+    const F3 = 0.02 * 9.81 * kgs * L * Math.sin(angle * Math.PI / 180);
     const totalForce = F1 + F2 + F3;
-    const powerW = totalForce * speed;
-    const powerKW = powerW / 1000 / eff;
-    const motorHP = powerKW / 0.746;
-
-    // Belt tension
-    const tension = totalForce / 2;
-
-    // Recommended motor
+    const powerKW = (totalForce * speed) / 1000 / eff;
     const stdMotors = [0.75,1.1,1.5,2.2,3,3.7,5.5,7.5,11,15,18.5,22,30,37,45,55,75,90,110,132,160,200];
     const recMotor = stdMotors.find(s => s >= powerKW * 1.25) || 200;
-
-    const r = $('conveyorResults');
-    r.innerHTML = [
-      makeResult('Capacity', tph, 'TPH'),
-      makeResult('Belt Speed', speed, 'm/s'),
+    $('conveyorResults').innerHTML = [
       makeResult('Mass Flow', fmt(kgs, 2), 'kg/s'),
-      makeResult('Total Force', fmt(totalForce / 1000, 2), 'kN', 'highlight'),
-      makeResult('Belt Tension', fmt(tension / 1000, 2), 'kN'),
+      makeResult('Total Force', fmt(totalForce/1000, 2), 'kN', 'highlight'),
+      makeResult('Belt Tension', fmt(totalForce/2000, 2), 'kN'),
       makeResult('Power Required', fmt(powerKW, 2), 'kW', 'highlight'),
-      makeResult('Motor HP', fmt(motorHP, 2), 'HP'),
       makeResult('Recommended', recMotor, 'kW', 'good'),
       makeResult('Incline Check', angle > 18 ? 'TOO STEEP' : 'OK', '', angle > 18 ? 'danger' : 'good'),
     ].join('');
@@ -2153,68 +1293,46 @@
   $('convCalc').addEventListener('click', calcConveyor);
   $('convReset').addEventListener('click', () => {
     $('convTPH').value = 100; $('convSpeed').value = 1.5; $('convLength').value = 50;
-    $('convLift').value = 10; $('convAngle').value = 12; $('convDensity').value = 1.6;
-    $('convFriction').value = 0.03; $('convEff').value = 90; calcConveyor();
+    $('convLift').value = 10; $('convAngle').value = 12; $('convFriction').value = 0.03;
+    $('convEff').value = 90; calcConveyor();
   });
 
-  // ============ STARTER ============
+  // STARTER
   function calcStarter() {
-    const kW = +$('stKW').value;
     const FLC = +$('stFLC').value;
-    const V = +$('stV').value;
     const type = $('stType').value;
     const startTime = +$('stTime').value;
-
-    const startCurrentMap = { dol: 6, sd: 2.5, soft: 3, vfd: 1.1 };
-    const startI = FLC * startCurrentMap[type];
-
-    // Contactor sizing
+    const mult = { dol: 6, sd: 2.5, soft: 3, vfd: 1.1 }[type];
+    const startI = FLC * mult;
     const stdBreakers = [6,10,16,20,25,32,40,50,63,80,100,125,160,200,250,320,400,500,630];
     const mainCont = stdBreakers.find(b => b >= FLC * 1.1) || 630;
     const starCont = stdBreakers.find(b => b >= FLC * 0.6) || 630;
-    const deltaCont = mainCont;
-    const overloadRange = [FLC * 0.9, FLC * 1.1].map(x => fmt(x, 1));
-
-    // Thermal capacity
-    const I2t = startI * startI * startTime;
-    const fuseSize = stdBreakers.find(b => b >= FLC * 2) || 630;
-
-    const r = $('starterResults');
-    r.innerHTML = [
-      makeResult('Motor', kW, 'kW'),
+    $('starterResults').innerHTML = [
       makeResult('Type', type.toUpperCase(), '', 'highlight'),
       makeResult('FLC', FLC, 'A'),
       makeResult('Starting Current', fmt(startI, 1), 'A', type === 'dol' ? 'warn' : 'good'),
       makeResult('Main Contactor', mainCont, 'A', 'highlight'),
       makeResult('Star Contactor', type === 'sd' ? starCont + ' A' : 'N/A'),
-      makeResult('Delta Contactor', type === 'sd' ? deltaCont + ' A' : 'N/A'),
-      makeResult('Overload Range', overloadRange.join(' - '), 'A'),
-      makeResult('Backup Fuse', fuseSize, 'A'),
-      makeResult('I²t (Starting)', fmt(I2t / 1000, 2) + ' k', 'A²s'),
+      makeResult('Delta Contactor', type === 'sd' ? mainCont + ' A' : 'N/A'),
+      makeResult('I²t', fmt(startI * startI * startTime / 1000, 2), 'kA²s'),
     ].join('');
   }
   $('stCalc').addEventListener('click', calcStarter);
   $('stReset').addEventListener('click', () => {
     $('stKW').value = 37; $('stFLC').value = 70; $('stV').value = 415;
-    $('stTime').value = 10; $('stStarts').value = 6; calcStarter();
+    $('stTime').value = 10; calcStarter();
   });
 
-  // ============ BREAKER ============
+  // BREAKER
   function calcBreaker() {
     const load = +$('brkLoad').value;
-    const V = +$('brkV').value;
     const type = $('brkType').value;
     const cat = $('brkCat').value;
     const amb = +$('brkAmb').value;
-
     const typeMult = { b: 1.0, a: 1.1, d: 1.3 }[cat];
     const In = load * typeMult * 1.25;
-
-    // Derate for ambient
     const derate = amb > 40 ? 1 - (amb - 40) * 0.01 : 1;
     const InAdj = In / derate;
-
-    // Standard sizes
     const stdSizes = {
       mcb: [6,10,16,20,25,32,40,50,63,80,100,125],
       mccb: [16,20,25,32,40,50,63,80,100,125,160,200,250,320,400,500,630,800,1000,1250,1600],
@@ -2222,25 +1340,11 @@
       vcb: [630,800,1000,1250,1600,2000,2500,3200]
     };
     const recSize = stdSizes[type].find(s => s >= InAdj) || stdSizes[type].slice(-1)[0];
-
-    // Frame size
-    const frameMap = {
-      mcb: 'MCB Standard',
-      mccb: recSize <= 250 ? '250AF' : recSize <= 630 ? '630AF' : '1600AF',
-      acb: recSize <= 1600 ? '1600AF' : recSize <= 3200 ? '3200AF' : '6300AF',
-      vcb: 'VCB Standard'
-    };
-
-    const r = $('breakerResults');
-    r.innerHTML = [
-      makeResult('Load Current', load, 'A'),
-      makeResult('Category', cat.toUpperCase(), ''),
+    $('breakerResults').innerHTML = [
       makeResult('Min Rating', fmt(In, 1), 'A'),
       makeResult('Ambient Derate', fmt(derate * 100, 0), '%'),
-      makeResult('Adjusted', fmt(InAdj, 1), 'A'),
       makeResult('Breaker Type', type.toUpperCase(), '', 'highlight'),
       makeResult('Recommended', recSize, 'A', 'good'),
-      makeResult('Frame Size', frameMap[type], '', 'highlight'),
       makeResult('Poles', $('brkPoles').value + 'P'),
       makeResult('Icu', $('brkIcu').value, 'kA'),
     ].join('');
@@ -2251,70 +1355,42 @@
     $('brkAmb').value = 40; calcBreaker();
   });
 
-  // ============ BUSBAR ============
+  // BUSBAR
   function calcBusbar() {
     const I = +$('bbCurrent').value;
     const mat = $('bbMaterial').value;
     const W = +$('bbWidth').value;
     const T = +$('bbThick').value;
     const n = +$('bbParallel').value;
-    const amb = +$('bbAmb').value;
     const rise = +$('bbRise').value;
     const enc = $('bbEnclosure').value;
-
-    const area = W * T * n; // mm²
-    const density = mat === 'cu' ? 8.96 : 2.70; // g/cm³
-    const res = mat === 'cu' ? 0.0172 : 0.0282; // Ω·mm²/m
-    const k = mat === 'cu' ? 1.0 : 0.75; // thermal conductivity factor
-
-    // Current density
+    const area = W * T * n;
     const cd = I / area;
-
-    // Enclosure derating
     const encDerate = { open: 1.0, ip31: 0.95, ip54: 0.88, ip65: 0.80 }[enc];
     const cdAdj = cd / encDerate;
-
-    // Skin effect (for parallel)
-    const skinFactor = n > 1 ? 0.85 : 1.0;
-
-    // Recommended current density
     const cdMax = mat === 'cu' ? 1.6 : 1.2;
     const status = cdAdj <= cdMax ? 'good' : cdAdj <= cdMax * 1.3 ? 'warn' : 'danger';
-
-    // Weight
-    const lengthM = 1; // per meter
-    const weight = area * density * lengthM * 10 / 1000; // kg per m
-
-    // Temp rise estimate (simplified)
-    const R = (res * lengthM) / area * 1000; // mΩ
-    const P = I * I * R / 1000; // W
-    const surfaceArea = 2 * (W + T) * lengthM * n * 100 / 10000; // m²
-    const tempRise = P / (surfaceArea * 8 * k);
-
-    const r = $('busbarResults');
-    r.innerHTML = [
+    const res = mat === 'cu' ? 0.0172 : 0.0282;
+    const R = (res * 1) / area * 1000;
+    const P = I * I * R / 1000;
+    const surfArea = 2 * (W + T) * 1 * n * 100 / 10000;
+    const tempRise = P / (surfArea * 8 * (mat === 'cu' ? 1.0 : 0.75));
+    $('busbarResults').innerHTML = [
       makeResult('Total Area', area, 'mm²', 'highlight'),
-      makeResult('Current', I, 'A'),
       makeResult('Current Density', fmt(cd, 3), 'A/mm²'),
       makeResult('Adj. (Enclosure)', fmt(cdAdj, 3), 'A/mm²', status),
       makeResult('Max Allowed', cdMax, 'A/mm²'),
       makeResult('Material', mat.toUpperCase(), ''),
-      makeResult('Weight/meter', fmt(weight, 2), 'kg/m'),
       makeResult('Est. Temp Rise', fmt(tempRise, 1), 'K', tempRise > rise ? 'danger' : 'good'),
-      makeResult('Allowed Rise', rise, 'K'),
-      makeResult('Enclosure', enc.toUpperCase(), ''),
-      makeResult('Parallel Runs', n, '×'),
-      makeResult('Skin Effect', fmt(skinFactor * 100, 0), '%'),
     ].join('');
   }
   $('bbCalc').addEventListener('click', calcBusbar);
   $('bbReset').addEventListener('click', () => {
     $('bbCurrent').value = 800; $('bbWidth').value = 50; $('bbThick').value = 10;
-    $('bbParallel').value = 1; $('bbAmb').value = 40; $('bbRise').value = 50;
-    calcBusbar();
+    $('bbParallel').value = 1; calcBusbar();
   });
 
-  // ============ WIRE ============
+  // WIRE
   function calcWire() {
     const I = +$('wireCurrent').value;
     const V = +$('wireV').value;
@@ -2326,48 +1402,29 @@
     const install = $('wireInstall').value;
     const pf = +$('wirePF').value;
     const amb = +$('wireAmb').value;
-
-    // Resistivity
     const rho = cond === 'cu' ? 0.0175 : 0.0282;
-
-    // Standard sizes
     const sizes = [1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400,500,630];
-
-    // Installation derate
     const installDerate = { tray: 0.95, conduit: 0.88, buried: 0.90, air: 1.0 }[install];
-    // Ambient derate
     const ambDerate = amb > 30 ? 1 - (amb - 30) * 0.005 : 1;
-    // Grouping factor (assume 1 cable)
-    const groupFactor = 1.0;
-
-    // Ampacity table (approximate, A)
     const ampacity = {
       cu: { xlpe: [22,30,40,52,70,94,120,148,180,215,255,290,330,370,420,470,540,620,700],
             pvc: [17,24,32,42,57,76,96,118,143,172,204,232,264,296,336,376,432,496,560] },
       al: { xlpe: [17,23,30,40,54,72,92,114,138,166,196,224,255,286,324,362,416,478,540],
             pvc: [13,18,25,32,44,58,74,90,110,132,156,178,203,228,258,288,332,382,432] }
     };
-
     let chosen = null;
     for (let i = 0; i < sizes.length; i++) {
-      const cap = ampacity[cond][ins][i] * installDerate * ambDerate * groupFactor;
-      if (cap >= I) { chosen = { size: sizes[i], ampacity: cap, idx: i }; break; }
+      if (ampacity[cond][ins][i] * installDerate * ambDerate >= I) {
+        chosen = { size: sizes[i], ampacity: ampacity[cond][ins][i] * installDerate * ambDerate, idx: i };
+        break;
+      }
     }
     if (!chosen) chosen = { size: sizes[sizes.length-1], ampacity: ampacity[cond][ins][sizes.length-1], idx: sizes.length-1 };
-
-    // Voltage drop
-    const R = (rho * L) / chosen.size; // Ω
-    const X = 0.08 * L / 1000; // Ω (approx)
+    const R = (rho * L) / chosen.size;
+    const X = 0.08 * L / 1000;
     const sinPhi = Math.sqrt(1 - pf * pf);
-    let vd;
-    if (phase === 3) {
-      vd = Math.sqrt(3) * I * (R * pf + X * sinPhi);
-    } else {
-      vd = 2 * I * (R * pf + X * sinPhi);
-    }
-    const vdPct = (vd / V) * 100;
-
-    // If VD too high, upsize
+    let vd = phase === 3 ? Math.sqrt(3) * I * (R * pf + X * sinPhi) : 2 * I * (R * pf + X * sinPhi);
+    let vdPct = (vd / V) * 100;
     let finalSize = chosen.size;
     let finalVD = vdPct;
     let idx = chosen.idx;
@@ -2375,45 +1432,28 @@
       idx++;
       finalSize = sizes[idx];
       const R2 = (rho * L) / finalSize;
-      const X2 = 0.08 * L / 1000;
-      const vd2 = phase === 3 ? Math.sqrt(3) * I * (R2 * pf + X2 * sinPhi) : 2 * I * (R2 * pf + X2 * sinPhi);
+      const vd2 = phase === 3 ? Math.sqrt(3) * I * (R2 * pf + 0.08 * L / 1000 * sinPhi) : 2 * I * (R2 * pf + 0.08 * L / 1000 * sinPhi);
       finalVD = (vd2 / V) * 100;
     }
-
-    // Voltage drop status
     const vdStatus = finalVD <= vdMax ? 'good' : finalVD <= vdMax * 1.2 ? 'warn' : 'danger';
-
-    // Power loss
     const Rfinal = (rho * L) / finalSize;
     const ploss = phase === 3 ? 3 * I * I * Rfinal : 2 * I * I * Rfinal;
-
-    // Earth wire
-    const earthSize = finalSize <= 16 ? finalSize : finalSize / 2;
-    const stdEarth = sizes.find(s => s >= earthSize) || sizes[sizes.length-1];
-
-    const r = $('wireResults');
-    r.innerHTML = [
-      makeResult('Load Current', I, 'A'),
+    $('wireResults').innerHTML = [
       makeResult('Cable Size', finalSize, 'mm²', 'highlight'),
-      makeResult('Ampacity', fmt(chosen.ampacity, 1), 'A'),
       makeResult('Voltage Drop', fmt(finalVD, 2), '%', vdStatus),
       makeResult('VD (Volts)', fmt((finalVD * V) / 100, 2), 'V'),
-      makeResult('Max Allowed', vdMax, '%'),
       makeResult('Power Loss', fmt(ploss, 2), 'W', ploss > 1000 ? 'warn' : 'good'),
       makeResult('Conductor', cond.toUpperCase(), ''),
-      makeResult('Insulation', ins.toUpperCase(), ''),
-      makeResult('Earth Wire', stdEarth, 'mm²'),
-      makeResult('Length', L, 'm'),
+      makeResult('Earth Wire', finalSize <= 16 ? finalSize : finalSize/2, 'mm²'),
     ].join('');
   }
   $('wireCalc').addEventListener('click', calcWire);
   $('wireReset').addEventListener('click', () => {
     $('wireCurrent').value = 100; $('wireV').value = 415; $('wireLen').value = 80;
-    $('wireVD').value = 3; $('wirePF').value = 0.85; $('wireAmb').value = 40;
-    calcWire();
+    $('wireVD').value = 3; $('wirePF').value = 0.85; calcWire();
   });
 
-  // ============ LOAD SCHEDULE ============
+  // LOAD
   function calcLoad() {
     const total = +$('loadTotal').value;
     const df = +$('loadDF').value;
@@ -2423,461 +1463,42 @@
     const targetPF = +$('loadTargetPF').value;
     const future = +$('loadFuture').value / 100;
     const trafo = +$('loadTrafo').value;
-
     const demand = total * df * div;
     const kVA = demand / pf;
     const current = (kVA * 1000) / (Math.sqrt(3) * V);
-    const withFuture = demand * (1 + future);
-    const kVAf = withFuture / pf;
-
-    // PF correction
+    const kVAf = (demand * (1 + future)) / pf;
     const tanPhi1 = Math.tan(Math.acos(pf));
     const tanPhi2 = Math.tan(Math.acos(targetPF));
     const kVAr = demand * (tanPhi1 - tanPhi2);
-    const kvarSteps = [5, 10, 15, 20, 25, 30, 40, 50, 60, 75, 100];
-    const recKvar = kvarSteps.find(s => s >= kVAr / 4) || 100;
-
-    // Trafo loading
     const trafoLoad = (kVAf / trafo) * 100;
-    const trafoStatus = trafoLoad <= 80 ? 'good' : trafoLoad <= 100 ? 'warn' : 'danger';
-
-    // Generator sizing
-    const genKVA = kVAf * 1.25;
     const stdGen = [100,125,160,200,250,315,400,500,630,800,1000,1250,1600,2000];
-    const recGen = stdGen.find(s => s >= genKVA) || 2000;
-
-    const r = $('loadResults');
-    r.innerHTML = [
-      makeResult('Connected Load', total, 'kW'),
+    const recGen = stdGen.find(s => s >= kVAf * 1.25) || 2000;
+    $('loadResults').innerHTML = [
       makeResult('Demand', fmt(demand, 1), 'kW', 'highlight'),
-      makeResult('Apparent Power', fmt(kVA, 1), 'kVA'),
       makeResult('Current @ PF', fmt(current, 1), 'A', 'highlight'),
-      makeResult('With Future', fmt(withFuture, 1), 'kW'),
-      makeResult('Future kVA', fmt(kVAf, 1), 'kVA'),
       makeResult('PF Correction', fmt(kVAr, 1), 'kVAr', 'highlight'),
-      makeResult('Recommended kVAR', recKvar, 'kVAr × 4 steps', 'good'),
-      makeResult('Transformer', trafo, 'kVA'),
-      makeResult('Trafo Loading', fmt(trafoLoad, 1), '%', trafoStatus),
+      makeResult('Trafo Loading', fmt(trafoLoad, 1), '%', trafoLoad <= 80 ? 'good' : trafoLoad <= 100 ? 'warn' : 'danger'),
       makeResult('Generator Size', recGen, 'kVA'),
-      makeResult('Target PF', targetPF, ''),
     ].join('');
   }
   $('loadCalc').addEventListener('click', calcLoad);
   $('loadReset').addEventListener('click', () => {
     $('loadTotal').value = 500; $('loadDF').value = 0.8; $('loadDiv').value = 0.9;
-    $('loadPF').value = 0.85; $('loadV').value = 415; $('loadTargetPF').value = 0.95;
-    $('loadFuture').value = 20; $('loadTrafo').value = 630; calcLoad();
+    $('loadPF').value = 0.85; calcLoad();
   });
 
-  // ============ INSTRUMENTS ============
-  function calcInst() {
-    const primary = +$('instPrimary').value;
-    const sec = +$('instSec').value;
-    const cls = $('instClass').value;
-    const burden = +$('instBurden').value;
-    const ptPrim = +$('instPTPrim').value;
-    const ptSec = +$('instPTSec').value;
-    const acc = $('instAcc').value;
+  // INIT CALCS
+  calcMotor(); calcVFD(); calcGear(); calcBlower(); calcConveyor();
+  calcStarter(); calcBreaker(); calcBusbar(); calcWire(); calcLoad();
 
-    const ratio = primary / sec;
-    const ctRatio = `${primary}/${sec}`;
-    const ptRatio = `${ptPrim}/${ptSec}`;
-
-    // Recommended CT primary (1.25× load)
-    const stdCT = [50,75,100,150,200,250,300,400,500,600,750,800,1000,1200,1500,2000,2500,3000,4000];
-    const recPrimary = stdCT.find(s => s >= primary * 1.25) || 4000;
-
-    // Burden check
-    const maxBurden = sec === 5 ? 15 : 25;
-    const burdenStatus = burden <= maxBurden ? 'good' : 'danger';
-
-    // VA at secondary
-    const va = burden;
-
-    // Accuracy
-    const accNum = parseFloat(acc);
-    const errAtFull = (accNum / 100) * primary;
-
-    const r = $('instResults');
-    r.innerHTML = [
-      makeResult('CT Ratio', ctRatio, ':1', 'highlight'),
-      makeResult('PT Ratio', ptRatio, ':1'),
-      makeResult('CT Class', cls, ''),
-      makeResult('Meter Accuracy', acc, ''),
-      makeResult('Burden', burden, 'VA', burdenStatus),
-      makeResult('Max Burden', maxBurden, 'VA'),
-      makeResult('Recommended CT', recPrimary, 'A', 'good'),
-      makeResult('Error @ Full', fmt(errAtFull, 1), 'A'),
-      makeResult('Secondary', sec, 'A'),
-      makeResult('PT Secondary', ptSec, 'V'),
-    ].join('');
-  }
-  $('instCalc').addEventListener('click', calcInst);
-  $('instReset').addEventListener('click', () => {
-    $('instPrimary').value = 400; $('instBurden').value = 15;
-    $('instPTPrim').value = 11000; $('instPTSec').value = 110;
-    calcInst();
-  });
-
-  // ============ LIVE SIMULATION ============
-  let sim = {
-    running: false,
-    paused: false,
-    current: 0,
-    temp: 40,
-    voltage: 415,
-    load: 75,
-    time: 0,
-    tickInterval: null,
-    data: { cur: [], temp: [] },
-    maxPoints: 100,
-    logRows: []
-  };
-
-  function simTick() {
-    if (sim.paused || !sim.running) return;
-    const FLC = +$('simFLC').value;
-    const Vnom = +$('simV').value;
-    const loadPct = +$('simLoad').value;
-    const amb = +$('simAmb').value;
-    const fault = $('simFault').value;
-    const speed = +$('simSpeed').value;
-
-    sim.time += 1 * speed;
-
-    // Base current
-    let targetCur = FLC * (loadPct / 100);
-
-    // Apply faults
-    let faultMult = 1;
-    if (fault === 'overload') faultMult = 1.5;
-    else if (fault === 'phaseLoss') faultMult = 1.8;
-    else if (fault === 'earthFault') faultMult = 2.5;
-    targetCur *= faultMult;
-
-    // Voltage
-    sim.voltage = Vnom - (targetCur / FLC) * 5 + (Math.random() - 0.5) * 2;
-
-    // Smooth current
-    sim.current += (targetCur - sim.current) * 0.15 + (Math.random() - 0.5) * 2;
-
-    // Temperature rise
-    let heatRate = (sim.current / FLC) ** 2 * 0.5;
-    if (fault === 'overheat') heatRate *= 2;
-    let coolRate = (sim.temp - amb) * 0.02;
-    sim.temp += heatRate - coolRate;
-
-    // Overload protection trip
-    if (sim.current > FLC * 1.3 && sim.time > 3) {
-      sim.running = false;
-      clearInterval(sim.tickInterval);
-      $('simStatus').textContent = `⚠️ OVERLOAD TRIP at ${fmt(sim.current, 1)} A`;
-      $('simDot').className = 'dot danger';
-      logRow('TRIP');
-      return;
-    }
-    if (sim.temp > 120) {
-      sim.running = false;
-      clearInterval(sim.tickInterval);
-      $('simStatus').textContent = `🔥 OVERHEAT TRIP at ${fmt(sim.temp, 1)}°C`;
-      $('simDot').className = 'dot danger';
-      logRow('TRIP');
-      return;
-    }
-
-    // Data log
-    sim.data.cur.push(sim.current);
-    sim.data.temp.push(sim.temp);
-    if (sim.data.cur.length > sim.maxPoints) sim.data.cur.shift();
-    if (sim.data.temp.length > sim.maxPoints) sim.data.temp.shift();
-
-    // Update UI
-    const pf = 0.85 + Math.random() * 0.05;
-    const kW = (Math.sqrt(3) * sim.voltage * sim.current * pf) / 1000;
-
-    $('simResults').innerHTML = [
-      makeResult('Time', fmt(sim.time, 0), 's'),
-      makeResult('Current', fmt(sim.current, 1), 'A', sim.current > FLC ? 'warn' : 'good'),
-      makeResult('Voltage', fmt(sim.voltage, 1), 'V'),
-      makeResult('Power', fmt(kW, 2), 'kW'),
-      makeResult('PF', fmt(pf, 3), ''),
-      makeResult('Temperature', fmt(sim.temp, 1), '°C', sim.temp > 80 ? 'danger' : sim.temp > 60 ? 'warn' : 'good'),
-    ].join('');
-
-    // Status
-    let statusText = 'RUNNING · NORMAL';
-    let dotClass = 'dot ok';
-    if (fault !== 'none') { statusText = `RUNNING · ${fault.toUpperCase()}`; dotClass = 'dot danger'; }
-    $('simStatus').textContent = statusText;
-    $('simDot').className = dotClass;
-
-    // Update chart
-    drawSimChart();
-    // Log every 2 ticks
-    if (Math.floor(sim.time) % 2 === 0) logRow('OK');
-  }
-
-  function drawSimChart() {
-    const cur = sim.data.cur;
-    const temp = sim.data.temp;
-    if (cur.length < 2) return;
-    const FLC = +$('simFLC').value;
-    const maxCur = Math.max(FLC * 1.5, ...cur) * 1.1;
-    const maxTemp = 150;
-    const W = 400, H = 140, pad = 20;
-    const xStep = (W - pad * 2) / (sim.maxPoints - 1);
-
-    // Path current
-    let p1 = '';
-    cur.forEach((v, i) => {
-      const x = pad + i * xStep;
-      const y = H - pad - (v / maxCur) * (H - pad * 2);
-      p1 += (i === 0 ? 'M' : 'L') + `${x.toFixed(1)},${y.toFixed(1)} `;
-    });
-    $('simPathCur').setAttribute('d', p1);
-
-    // Path temp
-    let p2 = '';
-    temp.forEach((v, i) => {
-      const x = pad + i * xStep;
-      const y = H - pad - (v / maxTemp) * (H - pad * 2);
-      p2 += (i === 0 ? 'M' : 'L') + `${x.toFixed(1)},${y.toFixed(1)} `;
-    });
-    $('simPathTemp').setAttribute('d', p2);
-  }
-
-  $('simStart').addEventListener('click', () => {
-    if (sim.running) return;
-    sim.running = true;
-    sim.paused = false;
-    sim.temp = +$('simAmb').value;
-    sim.time = 0;
-    $('simDot').className = 'dot ok';
-    $('simStatus').textContent = 'STARTING...';
-    const speed = +$('simSpeed').value;
-    sim.tickInterval = setInterval(simTick, 200 / speed);
-  });
-
-  $('simPause').addEventListener('click', () => {
-    sim.paused = !sim.paused;
-    $('simStatus').textContent = sim.paused ? 'PAUSED' : 'RUNNING';
-    $('simDot').className = sim.paused ? 'dot warn' : 'dot ok';
-  });
-
-  $('simStop').addEventListener('click', () => {
-    sim.running = false;
-    sim.paused = false;
-    clearInterval(sim.tickInterval);
-    $('simStatus').textContent = 'STOPPED';
-    $('simDot').className = 'dot';
-  });
-
-  $('simReset').addEventListener('click', () => {
-    sim.running = false;
-    sim.paused = false;
-    clearInterval(sim.tickInterval);
-    sim.current = 0;
-    sim.temp = 40;
-    sim.time = 0;
-    sim.data = { cur: [], temp: [] };
-    $('simPathCur').setAttribute('d', '');
-    $('simPathTemp').setAttribute('d', '');
-    $('simResults').innerHTML = '';
-    $('simStatus').textContent = 'READY TO START';
-    $('simDot').className = 'dot';
-    $('simFault').value = 'none';
-  });
-
-  // ============ TREND CHART ============
-  let trend = {
-    running: false,
-    data: [],
-    maxPoints: 80,
-    interval: null,
-    t: 0
-  };
-
-  function drawTrendChart() {
-    const d = trend.data;
-    if (d.length < 2) return;
-    const W = 400, H = 200, pad = 25;
-    const maxI = Math.max(120, ...d.map(p => Math.max(p.ir, p.iy, p.ib))) * 1.1;
-    const maxV = Math.max(450, ...d.map(p => p.v)) * 1.1;
-    const xStep = (W - pad * 2) / (trend.maxPoints - 1);
-
-    ['trendR','trendY','trendB'].forEach((id, idx) => {
-      const key = ['ir','iy','ib'][idx];
-      let p = '';
-      d.forEach((pt, i) => {
-        const x = pad + i * xStep;
-        const y = H - pad - (pt[key] / maxI) * (H - pad * 2);
-        p += (i === 0 ? 'M' : 'L') + `${x.toFixed(1)},${y.toFixed(1)} `;
-      });
-      $(id).setAttribute('d', p);
-    });
-
-    // Voltage
-    let pv = '';
-    d.forEach((pt, i) => {
-      const x = pad + i * xStep;
-      const y = H - pad - (pt.v / maxV) * (H - pad * 2);
-      pv += (i === 0 ? 'M' : 'L') + `${x.toFixed(1)},${y.toFixed(1)} `;
-    });
-    $('trendV').setAttribute('d', pv);
-
-    // Grid
-    const grid = $('trendGrid');
-    grid.innerHTML = '';
-    for (let i = 1; i < 4; i++) {
-      const y = pad + (i * (H - pad * 2) / 4);
-      grid.innerHTML += `<line x1="${pad}" y1="${y}" x2="${W-pad}" y2="${y}" stroke="#1e293b" stroke-width="1"/>`;
-    }
-  }
-
-  function trendTick() {
-    if (!trend.running) return;
-    trend.t += 0.5;
-    const base = 100;
-    const pt = {
-      t: trend.t,
-      ir: base + Math.sin(trend.t * 0.5) * 15 + (Math.random() - 0.5) * 8,
-      iy: base + Math.sin(trend.t * 0.5 + 2.09) * 15 + (Math.random() - 0.5) * 8,
-      ib: base + Math.sin(trend.t * 0.5 + 4.19) * 15 + (Math.random() - 0.5) * 8,
-      v: 415 + Math.sin(trend.t * 0.3) * 5 + (Math.random() - 0.5) * 3
-    };
-    trend.data.push(pt);
-    if (trend.data.length > trend.maxPoints) trend.data.shift();
-    drawTrendChart();
-    $('trendStatus').textContent = `Running · ${fmt(trend.t, 1)}s · ${trend.data.length} points`;
-  }
-
-  $('trendStart').addEventListener('click', () => {
-    if (trend.running) return;
-    trend.running = true;
-    $('trendDot').className = 'dot ok';
-    $('trendStatus').textContent = 'Trend running...';
-    trend.interval = setInterval(trendTick, 500);
-  });
-
-  $('trendStop').addEventListener('click', () => {
-    trend.running = false;
-    clearInterval(trend.interval);
-    $('trendDot').className = 'dot warn';
-    $('trendStatus').textContent = 'Stopped';
-  });
-
-  $('trendClear').addEventListener('click', () => {
-    trend.data = [];
-    trend.t = 0;
-    ['trendR','trendY','trendB','trendV'].forEach(id => $(id).setAttribute('d', ''));
-    $('trendStatus').textContent = 'Cleared';
-  });
-
-  $('trendCSV').addEventListener('click', () => {
-    if (trend.data.length === 0) { alert('No data to export'); return; }
-    let csv = 'Time(s),I_R(A),I_Y(A),I_B(A),V(V)\n';
-    trend.data.forEach(p => {
-      csv += `${fmt(p.t,1)},${fmt(p.ir,2)},${fmt(p.iy,2)},${fmt(p.ib,2)},${fmt(p.v,2)}\n`;
-    });
-    downloadCSV(csv, 'trend_data.csv');
-  });
-
-  // ============ DATA LOG ============
-  function logRow(status) {
-    const FLC = +$('simFLC').value;
-    const now = new Date();
-    const timeStr = now.toTimeString().slice(0, 8);
-    const row = {
-      time: timeStr,
-      v: fmt(sim.voltage, 1),
-      i: fmt(sim.current, 1),
-      pf: fmt(0.85 + Math.random() * 0.05, 3),
-      kw: fmt((Math.sqrt(3) * sim.voltage * sim.current * 0.86) / 1000, 2),
-      temp: fmt(sim.temp, 1),
-      status: status
-    };
-    sim.logRows.unshift(row);
-    if (sim.logRows.length > 100) sim.logRows.pop();
-    renderLog();
-  }
-
-  function renderLog() {
-    const body = $('logBody');
-    if (sim.logRows.length === 0) {
-      body.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#8892b0;padding:20px;">No data yet. Start simulation.</td></tr>';
-      return;
-    }
-    body.innerHTML = sim.logRows.map(r => `
-      <tr>
-        <td>${r.time}</td>
-        <td>${r.v}</td>
-        <td>${r.i}</td>
-        <td>${r.pf}</td>
-        <td>${r.kw}</td>
-        <td>${r.temp}</td>
-        <td style="color:${r.status === 'TRIP' ? '#ef4444' : '#22c55e'}">${r.status}</td>
-      </tr>`).join('');
-  }
-
-  $('logClear').addEventListener('click', () => {
-    sim.logRows = [];
-    renderLog();
-  });
-
-  $('logPause').addEventListener('click', () => {
-    sim.paused = !sim.paused;
-    $('logPause').textContent = sim.paused ? '▶ RESUME LOG' : '⏸ PAUSE LOG';
-  });
-
-  $('logExport').addEventListener('click', () => {
-    if (sim.logRows.length === 0) { alert('No log data'); return; }
-    let csv = 'Time,V(V),I(A),PF,kW,Temp(C),Status\n';
-    sim.logRows.slice().reverse().forEach(r => {
-      csv += `${r.time},${r.v},${r.i},${r.pf},${r.kw},${r.temp},${r.status}\n`;
-    });
-    downloadCSV(csv, 'system_log.csv');
-  });
-
-  function downloadCSV(csv, filename) {
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-
-  // ============ INIT ============
-  calcMotor();
-  calcVFD();
-  calcGear();
-  calcBlower();
-  calcConveyor();
-  calcStarter();
-  calcBreaker();
-  calcBusbar();
-  calcWire();
-  calcLoad();
-  calcInst();
-  renderLog();
-
-  console.log('%c⚡ Electrical Engineering Lab · By Lazy Owl 🦉', 'color:#facc15;font-size:16px;font-weight:bold;');
-  console.log('%c14 Tabs · All-in-One Calculator · Mobile Ready', 'color:#22d3ee;font-size:12px;');
-    // ============================================================
-  // ========== THEME TOGGLE ==========
-  // ============================================================
+  // THEME
   const themeBtn = document.createElement('button');
   themeBtn.className = 'theme-toggle';
   themeBtn.innerHTML = '🌙';
-  themeBtn.title = 'Toggle Theme';
   themeBtn.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
-    const isLight = document.body.classList.contains('light-mode');
-    themeBtn.innerHTML = isLight ? '☀️' : '🌙';
-    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    themeBtn.innerHTML = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
   });
   document.body.appendChild(themeBtn);
   if (localStorage.getItem('theme') === 'light') {
@@ -2885,98 +1506,74 @@
     themeBtn.innerHTML = '☀️';
   }
 
-  // ============================================================
-  // ========== INSTRUMENTS · 14 LIVE PARAMETERS ==========
-  // ============================================================
+  // INSTRUMENTS
   const instruments = [
-    { name: 'Voltage', tag: 'VT-01', unit: 'V', min: 0, max: 500, value: 415, alarm: [380, 450], type: 'volt' },
-    { name: 'Current', tag: 'CT-01', unit: 'A', min: 0, max: 200, value: 100, alarm: [140, 180], type: 'current' },
-    { name: 'Pressure', tag: 'PT-01', unit: 'bar', min: 0, max: 16, value: 8, alarm: [12, 15], type: 'pressure' },
-    { name: 'Temperature', tag: 'TT-01', unit: '°C', min: 0, max: 150, value: 65, alarm: [90, 120], type: 'temp' },
-    { name: 'Flow Rate', tag: 'FT-01', unit: 'm³/h', min: 0, max: 500, value: 250, alarm: [400, 470], type: 'flow' },
-    { name: 'Ratio', tag: 'RT-01', unit: '%', min: 0, max: 100, value: 50, alarm: [80, 95], type: 'ratio' },
-    { name: 'Coil Temp', tag: 'CT-02', unit: '°C', min: 0, max: 180, value: 75, alarm: [110, 150], type: 'coil' },
-    { name: 'Level', tag: 'LT-01', unit: '%', min: 0, max: 100, value: 70, alarm: [15, 95], type: 'level' },
-    { name: 'Vibration', tag: 'VT-02', unit: 'mm/s', min: 0, max: 20, value: 3.2, alarm: [7, 12], type: 'vibration' },
-    { name: 'Bearing DE', tag: 'BT-01', unit: '°C', min: 0, max: 120, value: 55, alarm: [85, 105], type: 'bearing' },
-    { name: 'Bearing NDE', tag: 'BT-02', unit: '°C', min: 0, max: 120, value: 52, alarm: [85, 105], type: 'bearing' },
-    { name: 'Power', tag: 'WT-01', unit: 'kW', min: 0, max: 100, value: 45, alarm: [80, 95], type: 'power' },
-    { name: 'Power Factor', tag: 'PF-01', unit: '', min: 0, max: 1, value: 0.86, alarm: [0.7, 0.95], type: 'pf' },
-    { name: 'Frequency', tag: 'HZ-01', unit: 'Hz', min: 45, max: 55, value: 50, alarm: [48.5, 51.5], type: 'freq' }
+    { name: 'Voltage', tag: 'VT-01', unit: 'V', min: 0, max: 500, value: 415, alarm: [380, 450], base: 415 },
+    { name: 'Current', tag: 'CT-01', unit: 'A', min: 0, max: 200, value: 100, alarm: [140, 180], base: 100 },
+    { name: 'Pressure', tag: 'PT-01', unit: 'bar', min: 0, max: 16, value: 8, alarm: [12, 15], base: 8 },
+    { name: 'Temperature', tag: 'TT-01', unit: '°C', min: 0, max: 150, value: 65, alarm: [90, 120], base: 65 },
+    { name: 'Flow Rate', tag: 'FT-01', unit: 'm³/h', min: 0, max: 500, value: 250, alarm: [400, 470], base: 250 },
+    { name: 'Ratio', tag: 'RT-01', unit: '%', min: 0, max: 100, value: 50, alarm: [80, 95], base: 50 },
+    { name: 'Coil Temp', tag: 'CT-02', unit: '°C', min: 0, max: 180, value: 75, alarm: [110, 150], base: 75 },
+    { name: 'Level', tag: 'LT-01', unit: '%', min: 0, max: 100, value: 70, alarm: [15, 95], base: 70 },
+    { name: 'Vibration', tag: 'VT-02', unit: 'mm/s', min: 0, max: 20, value: 3.2, alarm: [7, 12], base: 3.2 },
+    { name: 'Bearing DE', tag: 'BT-01', unit: '°C', min: 0, max: 120, value: 55, alarm: [85, 105], base: 55 },
+    { name: 'Bearing NDE', tag: 'BT-02', unit: '°C', min: 0, max: 120, value: 52, alarm: [85, 105], base: 52 },
+    { name: 'Power', tag: 'WT-01', unit: 'kW', min: 0, max: 100, value: 45, alarm: [80, 95], base: 45 },
+    { name: 'Power Factor', tag: 'PF-01', unit: '', min: 0, max: 1, value: 0.86, alarm: [0.7, 0.95], base: 0.86 },
+    { name: 'Frequency', tag: 'HZ-01', unit: 'Hz', min: 45, max: 55, value: 50, alarm: [48.5, 51.5], base: 50 },
   ];
-
-  let instRunning = false, instPaused = false, instInterval = null;
 
   function renderInstruments() {
     const grid = $('instLiveGrid');
     if (!grid) return;
-    grid.innerHTML = instruments.map((ins, i) => {
+    grid.innerHTML = instruments.map(ins => {
       const pct = ((ins.value - ins.min) / (ins.max - ins.min)) * 100;
-      let cls = '';
-      if (ins.value >= ins.alarm[1]) cls = 'danger';
-      else if (ins.value >= ins.alarm[0]) cls = 'warn';
+      let cls = ins.value >= ins.alarm[1] ? 'danger' : ins.value >= ins.alarm[0] ? 'warn' : '';
       return `
         <div class="inst-card ${cls}">
           <div class="inst-name">${ins.name} <span class="inst-tag">${ins.tag}</span></div>
           <div class="inst-value">${fmt(ins.value, ins.unit === '' ? 2 : 1)} <span style="font-size:0.7rem;color:var(--text2)">${ins.unit}</span></div>
           <div class="inst-bar"><div class="inst-bar-fill" style="width:${Math.min(100, pct)}%"></div></div>
-          <div class="inst-limits">
-            <span>${ins.alarm[0]} ${ins.unit}</span>
-            <span>${ins.alarm[1]} ${ins.unit}</span>
-          </div>
+          <div class="inst-limits"><span>${ins.alarm[0]} ${ins.unit}</span><span>${ins.alarm[1]} ${ins.unit}</span></div>
         </div>`;
     }).join('');
   }
+
+  let instRunning = false, instPaused = false, instInterval = null;
 
   function instTick() {
     if (!instRunning || instPaused) return;
     const t = Date.now() / 1000;
     instruments.forEach((ins, i) => {
-      let base = (ins.min + ins.max) / 2;
-      if (ins.type === 'volt') base = 415;
-      if (ins.type === 'current') base = 100;
-      if (ins.type === 'pressure') base = 8;
-      if (ins.type === 'temp') base = 65;
-      if (ins.type === 'flow') base = 250;
-      if (ins.type === 'ratio') base = 50;
-      if (ins.type === 'coil') base = 75;
-      if (ins.type === 'level') base = 70;
-      if (ins.type === 'vibration') base = 3.2;
-      if (ins.type === 'bearing') base = i === 9 ? 55 : 52;
-      if (ins.type === 'power') base = 45;
-      if (ins.type === 'pf') base = 0.86;
-      if (ins.type === 'freq') base = 50;
-
       const noise = (Math.random() - 0.5) * (ins.max - ins.min) * 0.03;
       const wave = Math.sin(t + i) * (ins.max - ins.min) * 0.02;
-      ins.value = Math.max(ins.min, Math.min(ins.max, base + noise + wave));
+      ins.value = Math.max(ins.min, Math.min(ins.max, ins.base + noise + wave));
     });
     renderInstruments();
   }
 
-  $('instStart')?.addEventListener('click', () => {
+  $('instStart').addEventListener('click', () => {
     instRunning = true; instPaused = false;
     $('instDot').className = 'dot ok';
     $('instStatus').textContent = 'Live · All instruments updating';
     if (instInterval) clearInterval(instInterval);
     instInterval = setInterval(instTick, 800);
   });
-  $('instPause')?.addEventListener('click', () => {
+  $('instPause').addEventListener('click', () => {
     instPaused = !instPaused;
     $('instStatus').textContent = instPaused ? 'Paused' : 'Live · Updating';
     $('instDot').className = instPaused ? 'dot warn' : 'dot ok';
   });
-  $('instStop')?.addEventListener('click', () => {
+  $('instStop').addEventListener('click', () => {
     instRunning = false;
     if (instInterval) clearInterval(instInterval);
     $('instStatus').textContent = 'Stopped';
     $('instDot').className = 'dot';
   });
-  $('instPDF')?.addEventListener('click', () => {
-    window.print();
-  });
+  $('instPDF').addEventListener('click', () => window.print());
 
-  // Bearing health cards
+  // BEARINGS
   function renderBearings() {
     const grid = $('bearingGrid');
     if (!grid) return;
@@ -2998,11 +1595,10 @@
     }).join('');
   }
   renderBearings();
+  renderInstruments();
 
-  // ============================================================
-  // ========== 4-20mA CALCULATOR ==========
-  // ============================================================
-  $('maCalc')?.addEventListener('click', () => {
+  // 4-20mA
+  function calcMA() {
     const varName = $('maVar').value;
     const min = +$('maMin').value;
     const max = +$('maMax').value;
@@ -3011,26 +1607,51 @@
     const mA = 4 + 16 * (pv - min) / (max - min);
     const pctClamped = Math.max(0, Math.min(100, pct));
     const mAStatus = mA < 3.6 ? 'danger' : mA > 21 ? 'danger' : mA < 4 || mA > 20 ? 'warn' : 'good';
-
-    const r = $('maResults');
-    r.innerHTML = [
-      makeResult('Process Variable', varName.toUpperCase(), ''),
+    $('maResults').innerHTML = [
+      makeResult('Variable', varName.toUpperCase(), ''),
       makeResult('Range', `${min} - ${max}`, ''),
-      makeResult('PV', fmt(pv, 2), ''),
       makeResult('Percent', fmt(pctClamped, 2), '%', 'highlight'),
       makeResult('Loop Current', fmt(mA, 3), 'mA', mAStatus),
       makeResult('Live Zero', '4.000', 'mA'),
       makeResult('Full Scale', '20.000', 'mA'),
       makeResult('Loop Status', mA < 3.6 ? 'FAULT' : mA > 21 ? 'OVERRANGE' : 'NORMAL', '', mAStatus),
       makeResult('Power @ 250Ω', fmt((mA * mA * 250) / 1000, 3), 'W'),
-      makeResult('Voltage @ 250Ω', fmt(mA * 250 / 1000, 3), 'V'),
     ].join('');
+  }
+  $('maCalc').addEventListener('click', calcMA);
+  $('maReset').addEventListener('click', () => {
+    $('maMin').value = 0; $('maMax').value = 100; $('maPV').value = 50; calcMA();
   });
-  $('maCalc')?.click();
+  calcMA();
 
-  // ============================================================
-  // ========== CABLE DATASHEET ==========
-  // ============================================================
+  // CT/PT
+  function calcInst() {
+    const primary = +$('instPrimary').value;
+    const sec = +$('instSec').value;
+    const burden = +$('instBurden').value;
+    const ptPrim = +$('instPTPrim').value;
+    const ptSec = +$('instPTSec').value;
+    const acc = +$('instAcc').value;
+    const stdCT = [50,75,100,150,200,250,300,400,500,600,750,800,1000,1200,1500,2000,2500,3000,4000];
+    const recPrimary = stdCT.find(s => s >= primary * 1.25) || 4000;
+    const maxBurden = sec === 5 ? 15 : 25;
+    const errAtFull = (acc / 100) * primary;
+    $('instResults').innerHTML = [
+      makeResult('CT Ratio', primary + '/' + sec, ':1', 'highlight'),
+      makeResult('PT Ratio', ptPrim + '/' + ptSec, ':1'),
+      makeResult('Burden', burden, 'VA', burden <= maxBurden ? 'good' : 'danger'),
+      makeResult('Max Burden', maxBurden, 'VA'),
+      makeResult('Recommended CT', recPrimary, 'A', 'good'),
+      makeResult('Error @ Full', fmt(errAtFull, 1), 'A'),
+    ].join('');
+  }
+  $('instCalc').addEventListener('click', calcInst);
+  $('instReset').addEventListener('click', () => {
+    $('instPrimary').value = 400; $('instBurden').value = 15; calcInst();
+  });
+  calcInst();
+
+  // CABLE DATASHEET
   const cableDB = [
     { size: 1.5, cuPvc: 17, cuXlpe: 22, alXlpe: 17, r: 12.1, x: 0.168, w: 45 },
     { size: 2.5, cuPvc: 24, cuXlpe: 30, alXlpe: 23, r: 7.41, x: 0.155, w: 65 },
@@ -3058,101 +1679,69 @@
     if (!tbody) return;
     const filtered = cableDB.filter(c => filter === '' || String(c.size).includes(filter));
     tbody.innerHTML = filtered.map(c => `
-      <tr>
-        <td class="val">${c.size}</td>
-        <td>${c.cuPvc}</td>
-        <td>${c.cuXlpe}</td>
-        <td>${c.alXlpe}</td>
-        <td>${c.r}</td>
-        <td>${c.x}</td>
-        <td>${c.w}</td>
-      </tr>`).join('');
+      <tr><td class="val">${c.size}</td><td>${c.cuPvc}</td><td>${c.cuXlpe}</td><td>${c.alXlpe}</td><td>${c.r}</td><td>${c.x}</td><td>${c.w}</td></tr>
+    `).join('');
   }
   renderCableTable();
-  $('cableSearch')?.addEventListener('input', e => renderCableTable(e.target.value));
+  $('cableSearch').addEventListener('input', e => renderCableTable(e.target.value));
+  $('cablePDF').addEventListener('click', () => window.print());
 
-  // ============================================================
-  // ========== MOTOR WIRE DATASHEET GENERATOR ==========
-  // ============================================================
-  $('mwCalc')?.addEventListener('click', () => {
+  // MOTOR WIRE DATASHEET
+  function calcMW() {
     const hp = +$('mwHP').value;
     const V = +$('mwV').value;
     const phase = +$('mwPhase').value;
     const startType = $('mwStart').value;
     const dist = +$('mwDist').value;
     const vdMax = +$('mwVD').value;
-
     const kW = hp * 0.746;
     const eff = 0.92, pf = 0.86;
-    let FLC;
-    if (phase === 3) FLC = (kW * 1000) / (Math.sqrt(3) * V * eff * pf);
-    else FLC = (kW * 1000) / (V * eff * pf);
-
+    let FLC = phase === 3 ? (kW * 1000) / (Math.sqrt(3) * V * eff * pf) : (kW * 1000) / (V * eff * pf);
     const startMult = { dol: 6, sd: 2.5, soft: 3, vfd: 1.1 }[startType];
     const startI = FLC * startMult;
-
-    // Cable selection
     const sizes = [1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240,300,400];
     const ampacities = [22,30,40,52,70,94,120,148,180,215,255,290,330,370,420,470,540];
     let chosen = 400;
     for (let i = 0; i < sizes.length; i++) {
       if (ampacities[i] >= FLC * 1.25) {
-        // VD check
-        const rho = 0.0175;
-        const R = rho * dist / sizes[i];
+        const R = 0.0175 * dist / sizes[i];
         const vd = phase === 3 ? Math.sqrt(3) * FLC * R * pf : 2 * FLC * R * pf;
-        const vdPct = (vd / V) * 100;
-        if (vdPct <= vdMax) { chosen = sizes[i]; break; }
+        if ((vd / V) * 100 <= vdMax) { chosen = sizes[i]; break; }
       }
     }
-
     const stdBreakers = [6,10,16,20,25,32,40,50,63,80,100,125,160,200,250,320,400,500,630];
     const brk = stdBreakers.find(b => b >= FLC * 1.25) || 630;
     const cont = stdBreakers.find(b => b >= FLC * 1.1) || 630;
-    const earthSize = chosen <= 16 ? chosen : chosen <= 35 ? 16 : chosen / 2;
-    const stdEarth = sizes.find(s => s >= earthSize) || 240;
-
     $('mwOutput').innerHTML = `
       <table class="datasheet-table">
         <thead><tr><th colspan="2">MOTOR WIRE & PROTECTION DATASHEET</th></tr></thead>
         <tbody>
           <tr><td class="key">Motor Rating</td><td class="val">${hp} HP / ${fmt(kW,2)} kW</td></tr>
-          <tr><td class="key">Voltage / Phase</td><td class="val">${V} V · ${phase}-Phase</td></tr>
-          <tr><td class="key">Full Load Current (FLC)</td><td class="val">${fmt(FLC,1)} A</td></tr>
-          <tr><td class="key">Starting Method</td><td class="val">${startType.toUpperCase()}</td></tr>
+          <tr><td class="key">FLC</td><td class="val">${fmt(FLC,1)} A</td></tr>
           <tr><td class="key">Starting Current</td><td class="val">${fmt(startI,1)} A</td></tr>
           <tr><td class="key">Recommended Cable</td><td class="val">${chosen} mm² (Cu XLPE)</td></tr>
-          <tr><td class="key">Earth Conductor</td><td class="val">${stdEarth} mm²</td></tr>
           <tr><td class="key">MCCB Rating</td><td class="val">${brk} A</td></tr>
           <tr><td class="key">Contactor Size</td><td class="val">${cont} A</td></tr>
           <tr><td class="key">Overload Range</td><td class="val">${fmt(FLC*0.9,1)} - ${fmt(FLC*1.1,1)} A</td></tr>
-          <tr><td class="key">Distance</td><td class="val">${dist} m</td></tr>
-          <tr><td class="key">Max Voltage Drop</td><td class="val">${vdMax} %</td></tr>
-          <tr><td class="key">Cable Resistance</td><td class="val">${fmt(0.0175 * dist / chosen, 4)} Ω</td></tr>
-          <tr><td class="key">Power Loss</td><td class="val">${fmt(phase===3 ? 3*FLC*FLC*0.0175*dist/chosen : 2*FLC*FLC*0.0175*dist/chosen, 1)} W</td></tr>
         </tbody>
       </table>`;
-  });
-  $('mwCalc')?.click();
-  $('mwPDF')?.addEventListener('click', () => window.print());
-  $('cablePDF')?.addEventListener('click', () => window.print());
+  }
+  $('mwCalc').addEventListener('click', calcMW);
+  $('mwPDF').addEventListener('click', () => window.print());
+  calcMW();
 
-  // ============================================================
-  // ========== MODBUS TCP / PROFIBUS SIMULATION ==========
-  // ============================================================
+  // PROTOCOL SIMULATION
   let proto = {
-    connected: false,
-    interval: null,
-    type: 'modbus',
+    connected: false, interval: null, type: 'modbus',
     registers: [
-      { addr: 40001, name: 'Motor Current', unit: 'A', value: 0, factor: 10 },
-      { addr: 40002, name: 'Motor Voltage', unit: 'V', value: 0, factor: 1 },
-      { addr: 40003, name: 'Motor Power', unit: 'kW', value: 0, factor: 10 },
-      { addr: 40004, name: 'Motor Temp', unit: '°C', value: 0, factor: 10 },
-      { addr: 40005, name: 'Bearing DE', unit: '°C', value: 0, factor: 10 },
-      { addr: 40006, name: 'Bearing NDE', unit: '°C', value: 0, factor: 10 },
-      { addr: 40007, name: 'Vibration', unit: 'mm/s', value: 0, factor: 100 },
-      { addr: 40008, name: 'Power Factor', unit: '', value: 0, factor: 100 }
+      { addr: 40001, name: 'Motor Current', unit: 'A', base: 100 },
+      { addr: 40002, name: 'Motor Voltage', unit: 'V', base: 415 },
+      { addr: 40003, name: 'Motor Power', unit: 'kW', base: 45 },
+      { addr: 40004, name: 'Motor Temp', unit: '°C', base: 65 },
+      { addr: 40005, name: 'Bearing DE', unit: '°C', base: 55 },
+      { addr: 40006, name: 'Bearing NDE', unit: '°C', base: 52 },
+      { addr: 40007, name: 'Vibration', unit: 'mm/s', base: 3.2 },
+      { addr: 40008, name: 'Power Factor', unit: '', base: 0.86 }
     ]
   };
 
@@ -3166,58 +1755,39 @@
     if (log.children.length > 60) log.removeChild(log.children[0]);
   }
 
-  $('protoConnect')?.addEventListener('click', () => {
+  $('protoConnect').addEventListener('click', () => {
     const type = $('protoType').value;
     const id = +$('protoID').value;
     const addr = $('protoAddr').value;
     const poll = +$('protoPoll').value;
     proto.type = type;
     proto.connected = true;
-
     const badge = $('protoBadge');
     badge.className = 'proto-badge ' + (type === 'modbus' ? 'tcp' : 'profibus') + ' connected';
     badge.textContent = type === 'modbus' ? 'MODBUS TCP' : 'PROFIBUS DP';
     $('protoDot').className = 'dot ok';
     $('protoStatus').textContent = `Connected to ${addr} · Slave ${id}`;
-
     busLogLine('SYS', `Opening ${type.toUpperCase()} connection to ${addr}...`);
-    setTimeout(() => busLogLine('TX', `${type === 'modbus' ? 'TCP' : 'DP'} CONNECT · Node ${id}`), 200);
-    setTimeout(() => busLogLine('RX', `ACK · Online · Poll ${poll}ms`), 400);
-
     if (proto.interval) clearInterval(proto.interval);
     proto.interval = setInterval(() => {
-      // Update register values
       proto.registers.forEach(r => {
-        const noise = (Math.random() - 0.5) * 4;
-        if (r.name === 'Motor Current') r.value = Math.max(0, 100 + noise);
-        else if (r.name === 'Motor Voltage') r.value = Math.max(0, 415 + noise);
-        else if (r.name === 'Motor Power') r.value = Math.max(0, 45 + noise);
-        else if (r.name === 'Motor Temp') r.value = Math.max(0, 65 + noise);
-        else if (r.name === 'Bearing DE') r.value = Math.max(0, 55 + noise);
-        else if (r.name === 'Bearing NDE') r.value = Math.max(0, 52 + noise);
-        else if (r.name === 'Vibration') r.value = Math.max(0, 3.2 + noise * 0.1);
-        else if (r.name === 'Power Factor') r.value = Math.max(0, Math.min(1, 0.86 + noise * 0.005));
+        r.value = Math.max(0, r.base + (Math.random() - 0.5) * 4);
       });
-
-      // Log protocol frames
       if (type === 'modbus') {
-        busLogLine('TX', `[${id}] Read Holding Registers 40001-40008 (Func 03)`);
+        busLogLine('TX', `[${id}] Read Holding Registers 40001-40008`);
         setTimeout(() => {
-          const vals = proto.registers.map(r => Math.round(r.value * r.factor)).join(', ');
+          const vals = proto.registers.map(r => Math.round(r.value * 10)).join(', ');
           busLogLine('RX', `[${id}] Response 16 bytes · [${vals}]`);
         }, 100);
       } else {
         busLogLine('TX', `[DP] Data Exchange with Slave ${id}`);
-        setTimeout(() => {
-          busLogLine('RX', `[DP] ${proto.registers.length} bytes input · OK`);
-        }, 100);
+        setTimeout(() => busLogLine('RX', `[DP] 8 bytes input · OK`), 100);
       }
-
       renderProtoRegisters();
     }, poll);
   });
 
-  $('protoDisconnect')?.addEventListener('click', () => {
+  $('protoDisconnect').addEventListener('click', () => {
     proto.connected = false;
     if (proto.interval) clearInterval(proto.interval);
     $('protoDot').className = 'dot';
@@ -3227,7 +1797,7 @@
     $('protoRegisterBody').innerHTML = '<tr><td colspan="5" style="text-align:center;color:#8892b0;padding:20px;">No connection</td></tr>';
   });
 
-  $('protoReset')?.addEventListener('click', () => {
+  $('protoReset').addEventListener('click', () => {
     $('busLog').innerHTML = '<div><span class="ts">[SYSTEM]</span> Ready to connect...</div>';
     if (proto.interval) clearInterval(proto.interval);
     proto.connected = false;
@@ -3238,253 +1808,107 @@
   function renderProtoRegisters() {
     const body = $('protoRegisterBody');
     if (!body) return;
-    body.innerHTML = proto.registers.map(r => {
-      const scaled = r.value;
-      const status = 'OK';
-      return `<tr>
-        <td class="key">${r.addr}</td>
-        <td>${r.name}</td>
-        <td class="val">${fmt(scaled, r.factor >= 100 ? 2 : 1)}</td>
-        <td>${r.unit}</td>
-        <td style="color:#22c55e">${status}</td>
-      </tr>`;
-    }).join('');
+    body.innerHTML = proto.registers.map(r => `
+      <tr><td class="key">${r.addr}</td><td>${r.name}</td><td class="val">${fmt(r.value, 2)}</td><td>${r.unit}</td><td style="color:#22c55e">OK</td></tr>
+    `).join('');
   }
 
-  // ============================================================
-  // ========== 3D MOTOR DIAGNOSTICS ==========
-  // ============================================================
-  const m3d = {
-    canvas: null, ctx: null,
-    running: false, rpm: 0, angle: 0, viewAngle: 0,
-    fault: false, temp: 40, current: 0,
-    interval: null
-  };
-
-  function init3D() {
-    m3d.canvas = $('motor3D');
-    if (!m3d.canvas) return;
-    m3d.ctx = m3d.canvas.getContext('2d');
-    draw3DMotor();
-  }
-
+  // 3D MOTOR
+  const m3d = { canvas: null, ctx: null, running: false, rpm: 0, angle: 0, fault: false, temp: 40, current: 0, interval: null };
+  function init3D() { m3d.canvas = $('motor3D'); if (m3d.canvas) { m3d.ctx = m3d.canvas.getContext('2d'); draw3DMotor(); } }
   function draw3DMotor() {
-    const c = m3d.ctx;
-    if (!c) return;
+    const c = m3d.ctx; if (!c) return;
     const W = 400, H = 300;
     c.clearRect(0, 0, W, H);
-
-    // Background
     c.fillStyle = document.body.classList.contains('light-mode') ? '#e2e8f0' : '#0a0e1a';
     c.fillRect(0, 0, W, H);
-
-    // Grid floor (perspective)
     c.strokeStyle = document.body.classList.contains('light-mode') ? '#94a3b8' : '#1e293b';
     c.lineWidth = 0.5;
-    for (let i = 0; i < 12; i++) {
-      c.beginPath();
-      c.moveTo(0, 200 + i * 8);
-      c.lineTo(W, 200 + i * 8);
-      c.stroke();
-    }
-
-    // Motor body (isometric 3D look)
-    const cx = W / 2, cy = H / 2 + 20;
-    const bodyW = 180, bodyH = 80;
-
-    // Body shadow
+    for (let i = 0; i < 12; i++) { c.beginPath(); c.moveTo(0, 200 + i * 8); c.lineTo(W, 200 + i * 8); c.stroke(); }
+    const cx = W/2, cy = H/2 + 20, bodyW = 180, bodyH = 80;
     c.fillStyle = 'rgba(0,0,0,0.4)';
-    c.beginPath();
-    c.ellipse(cx, cy + 60, 110, 12, 0, 0, Math.PI * 2);
-    c.fill();
-
-    // Main body (cylinder)
+    c.beginPath(); c.ellipse(cx, cy + 60, 110, 12, 0, 0, Math.PI*2); c.fill();
     const grad = c.createLinearGradient(cx - bodyW/2, cy - bodyH/2, cx + bodyW/2, cy + bodyH/2);
-    grad.addColorStop(0, '#475569');
-    grad.addColorStop(0.5, '#64748b');
-    grad.addColorStop(1, '#334155');
+    grad.addColorStop(0, '#475569'); grad.addColorStop(0.5, '#64748b'); grad.addColorStop(1, '#334155');
     c.fillStyle = grad;
-    c.beginPath();
-    c.roundRect(cx - bodyW/2, cy - bodyH/2, bodyW, bodyH, 15);
-    c.fill();
-
-    // Cooling fins
-    c.strokeStyle = '#1e293b';
-    c.lineWidth = 2;
-    for (let i = -4; i <= 4; i++) {
-      const x = cx + i * 18;
-      c.beginPath();
-      c.moveTo(x, cy - bodyH/2 + 5);
-      c.lineTo(x, cy + bodyH/2 - 5);
-      c.stroke();
-    }
-
-    // Terminal box on top
-    c.fillStyle = '#1e293b';
-    c.beginPath();
-    c.roundRect(cx - 30, cy - bodyH/2 - 18, 60, 20, 4);
-    c.fill();
-
-    // Shaft
-    c.fillStyle = '#94a3b8';
-    c.beginPath();
-    c.roundRect(cx + bodyW/2 - 4, cy - 10, 50, 20, 4);
-    c.fill();
-    c.fillStyle = '#475569';
-    c.beginPath();
-    c.roundRect(cx + bodyW/2 - 4, cy - 10, 50, 5, 2);
-    c.fill();
-
-    // Fan cover (left side)
-    c.fillStyle = '#334155';
-    c.beginPath();
-    c.roundRect(cx - bodyW/2 - 28, cy - bodyH/2 + 10, 26, bodyH - 20, 8);
-    c.fill();
-
-    // Fan blades (rotating)
-    const fanCx = cx - bodyW/2 - 15;
-    const fanCy = cy;
+    c.beginPath(); c.roundRect(cx - bodyW/2, cy - bodyH/2, bodyW, bodyH, 15); c.fill();
+    c.strokeStyle = '#1e293b'; c.lineWidth = 2;
+    for (let i = -4; i <= 4; i++) { const x = cx + i*18; c.beginPath(); c.moveTo(x, cy - bodyH/2 + 5); c.lineTo(x, cy + bodyH/2 - 5); c.stroke(); }
+    c.fillStyle = '#1e293b'; c.beginPath(); c.roundRect(cx - 30, cy - bodyH/2 - 18, 60, 20, 4); c.fill();
+    c.fillStyle = '#94a3b8'; c.beginPath(); c.roundRect(cx + bodyW/2 - 4, cy - 10, 50, 20, 4); c.fill();
+    c.fillStyle = '#334155'; c.beginPath(); c.roundRect(cx - bodyW/2 - 28, cy - bodyH/2 + 10, 26, bodyH - 20, 8); c.fill();
+    const fanCx = cx - bodyW/2 - 15, fanCy = cy;
     for (let i = 0; i < 6; i++) {
       const a = m3d.angle + (i * Math.PI / 3);
-      c.save();
-      c.translate(fanCx, fanCy);
-      c.rotate(a);
+      c.save(); c.translate(fanCx, fanCy); c.rotate(a);
       c.fillStyle = m3d.running ? '#22d3ee' : '#64748b';
-      c.beginPath();
-      c.moveTo(0, 0);
-      c.lineTo(10, -3);
-      c.lineTo(10, 3);
-      c.closePath();
-      c.fill();
+      c.beginPath(); c.moveTo(0, 0); c.lineTo(10, -3); c.lineTo(10, 3); c.closePath(); c.fill();
       c.restore();
     }
-
-    // Fault indicator (LED)
     if (m3d.fault) {
-      const blink = Math.sin(Date.now() / 150) > 0;
+      const blink = Math.sin(Date.now()/150) > 0;
       c.fillStyle = blink ? '#ef4444' : '#7f1d1d';
-      c.beginPath();
-      c.arc(cx - 40, cy - bodyH/2 - 8, 5, 0, Math.PI * 2);
-      c.fill();
-      c.fillStyle = '#fff';
-      c.font = 'bold 10px monospace';
-      c.fillText('FAULT', cx - 30, cy - bodyH/2 - 4);
+      c.beginPath(); c.arc(cx - 40, cy - bodyH/2 - 8, 5, 0, Math.PI*2); c.fill();
+      c.fillStyle = '#fff'; c.font = 'bold 10px monospace'; c.fillText('FAULT', cx - 30, cy - bodyH/2 - 4);
     }
-
-    // Info panel on motor
-    c.fillStyle = 'rgba(0,0,0,0.6)';
-    c.beginPath();
-    c.roundRect(cx - 60, cy + bodyH/2 + 8, 120, 30, 6);
-    c.fill();
-    c.fillStyle = '#22d3ee';
-    c.font = 'bold 11px monospace';
-    c.fillText(`${Math.round(m3d.rpm)} RPM`, cx - 55, cy + bodyH/2 + 22);
+    c.fillStyle = 'rgba(0,0,0,0.6)'; c.beginPath(); c.roundRect(cx - 60, cy + bodyH/2 + 8, 120, 30, 6); c.fill();
+    c.fillStyle = '#22d3ee'; c.font = 'bold 11px monospace'; c.fillText(`${Math.round(m3d.rpm)} RPM`, cx - 55, cy + bodyH/2 + 22);
     c.fillStyle = m3d.temp > 80 ? '#ef4444' : m3d.temp > 60 ? '#f59e0b' : '#22c55e';
     c.fillText(`${fmt(m3d.temp, 1)}°C`, cx + 5, cy + bodyH/2 + 22);
-    c.fillStyle = '#94a3b8';
-    c.font = '9px monospace';
-    c.fillText('3-PHASE INDUCTION MOTOR', cx - 55, cy + bodyH/2 + 34);
-
-    // Rotation arrow
-    if (m3d.running) {
-      c.strokeStyle = '#22c55e';
-      c.lineWidth = 2;
-      c.beginPath();
-      c.arc(cx + bodyW/2 + 30, cy, 15, 0, Math.PI * 1.5);
-      c.stroke();
-      c.fillStyle = '#22c55e';
-      c.beginPath();
-      c.moveTo(cx + bodyW/2 + 30, cy - 15);
-      c.lineTo(cx + bodyW/2 + 35, cy - 10);
-      c.lineTo(cx + bodyW/2 + 25, cy - 10);
-      c.closePath();
-      c.fill();
-    }
+    c.fillStyle = '#94a3b8'; c.font = '9px monospace'; c.fillText('3-PHASE INDUCTION MOTOR', cx - 55, cy + bodyH/2 + 34);
   }
-
   function m3dTick() {
     if (!m3d.running) return;
     const targetRPM = m3d.fault ? 0 : 1450;
     m3d.rpm += (targetRPM - m3d.rpm) * 0.05;
     m3d.angle += m3d.rpm / 60 * 0.2;
-
-    const targetCur = m3d.fault ? 0 : 100 + Math.sin(Date.now() / 1000) * 5;
+    const targetCur = m3d.fault ? 0 : 100 + Math.sin(Date.now()/1000) * 5;
     m3d.current += (targetCur - m3d.current) * 0.1;
-
     const targetTemp = m3d.fault ? 120 : 65;
     m3d.temp += (targetTemp - m3d.temp) * 0.01;
-
     draw3DMotor();
-
-    // Update results
     $('m3dResults').innerHTML = [
       makeResult('Speed', Math.round(m3d.rpm), 'RPM', m3d.rpm > 1000 ? 'good' : 'warn'),
       makeResult('Current', fmt(m3d.current, 1), 'A'),
       makeResult('Winding Temp', fmt(m3d.temp, 1), '°C', m3d.temp > 90 ? 'danger' : m3d.temp > 70 ? 'warn' : 'good'),
       makeResult('Status', m3d.fault ? 'FAULT' : m3d.running ? 'RUNNING' : 'IDLE', '', m3d.fault ? 'danger' : m3d.running ? 'good' : ''),
-      makeResult('Vibration', fmt(1.5 + m3d.rpm / 1000, 2), 'mm/s'),
-      makeResult('Load', fmt(m3d.current / 100 * 75, 1), '%'),
     ].join('');
   }
-
-  $('m3dStart')?.addEventListener('click', () => {
-    m3d.running = true;
-    m3d.fault = false;
+  $('m3dStart').addEventListener('click', () => {
+    m3d.running = true; m3d.fault = false;
     $('m3dDot').className = 'dot ok';
     $('m3dStatus').textContent = 'Motor running · 1450 RPM';
     if (m3d.interval) clearInterval(m3d.interval);
     m3d.interval = setInterval(m3dTick, 50);
   });
-  $('m3dStop')?.addEventListener('click', () => {
+  $('m3dStop').addEventListener('click', () => {
     m3d.running = false;
     if (m3d.interval) clearInterval(m3d.interval);
     $('m3dDot').className = 'dot';
     $('m3dStatus').textContent = 'Motor stopped';
     draw3DMotor();
   });
-  $('m3dFault')?.addEventListener('click', () => {
+  $('m3dFault').addEventListener('click', () => {
     m3d.fault = !m3d.fault;
     $('m3dDot').className = m3d.fault ? 'dot danger' : 'dot ok';
-    $('m3dStatus').textContent = m3d.fault ? '⚠️ FAULT INJECTED — High temperature!' : 'Fault cleared';
+    $('m3dStatus').textContent = m3d.fault ? '⚠️ FAULT INJECTED' : 'Fault cleared';
   });
-  $('m3dView')?.addEventListener('click', () => {
-    m3d.viewAngle = (m3d.viewAngle + 1) % 3;
-    draw3DMotor();
-  });
-
+  $('m3dView').addEventListener('click', draw3DMotor);
   init3D();
 
   // ============================================================
-  // ========== INIT ALL ==========
-  // ============================================================
-  renderInstruments();
-  renderBearings();
-   // ============================================================
-  // ========== LADDER LOGIC · STAR-DELTA SIMULATION ==========
+  // ========== LADDER LOGIC · STAR-DELTA ==========
   // ============================================================
   const ladder = {
-    M: false,        // Motor relay
-    K1: false,       // Main contactor
-    K2: false,       // Star contactor
-    K3: false,       // Delta contactor
-    direction: 'fwd', // 'fwd' or 'rev'
-    timer: 0,
-    timerSet: 5.0,
-    running: false,
-    startTime: 0,
-    interval: null,
-    rpm: 0,
-    current: 0,
-    voltage: 415,
-    power: 0,
-    efficiency: 0
+    M: false, K1: false, K2: false, K3: false,
+    direction: 'fwd', timer: 0, timerSet: 5.0,
+    running: false, startTime: 0, interval: null,
+    rpm: 0, current: 0, voltage: 415, power: 0, efficiency: 0
   };
 
   function updateLadderUI() {
-    // Update indicators
     const indM = $('indM'), indK1 = $('indK1'), indK2 = $('indK2'), indK3 = $('indK3');
     if (!indM) return;
-    
     indM.textContent = ladder.M ? 'ON' : 'OFF';
     indM.style.color = ladder.M ? '#22c55e' : '#8892b0';
     indK1.textContent = ladder.K1 ? 'ON' : 'OFF';
@@ -3493,8 +1917,6 @@
     indK2.style.color = ladder.K2 ? '#22c55e' : '#8892b0';
     indK3.textContent = ladder.K3 ? 'ON' : 'OFF';
     indK3.style.color = ladder.K3 ? '#22c55e' : '#8892b0';
-    
-    // Highlight coils
     ['ladM', 'ladK1', 'ladK2', 'ladK3'].forEach((id, i) => {
       const el = $(id);
       if (!el) return;
@@ -3502,33 +1924,17 @@
       el.setAttribute('stroke', on ? '#22c55e' : '#facc15');
       el.setAttribute('stroke-width', on ? '3' : '2');
     });
-    
-    // Timer
     const timerEl = $('ladTimer');
     if (timerEl) timerEl.textContent = ladder.timer.toFixed(1) + 's';
-    
-    // Motor status dot
     const dot = $('ladDot');
-    if (dot) {
-      if (ladder.K1) {
-        dot.className = 'dot ok';
-      } else if (ladder.M) {
-        dot.className = 'dot warn';
-      } else {
-        dot.className = 'dot';
-      }
-    }
-    
-    // Status text
+    if (dot) dot.className = ladder.K1 ? 'dot ok' : ladder.M ? 'dot warn' : 'dot';
     const statusEl = $('ladStatus');
     if (statusEl) {
       if (!ladder.M) statusEl.textContent = 'STOPPED · All contactors OFF';
       else if (ladder.K2) statusEl.textContent = `STARTING · Star mode · Direction: ${ladder.direction.toUpperCase()}`;
       else if (ladder.K3) statusEl.textContent = `RUNNING · Delta mode · Direction: ${ladder.direction.toUpperCase()}`;
-      else statusEl.textContent = 'M relay ON · Waiting for contactor';
+      else statusEl.textContent = 'M relay ON';
     }
-    
-    // Update live readings
     const r = $('ladResults');
     if (r) {
       r.innerHTML = [
@@ -3546,37 +1952,22 @@
 
   function ladderTick() {
     if (!ladder.running) return;
-    
     const elapsed = (Date.now() - ladder.startTime) / 1000;
-    
     if (ladder.M) {
-      // M relay ON, timer starts
       ladder.timer = Math.min(elapsed, ladder.timerSet);
-      
       if (ladder.timer < ladder.timerSet) {
-        // Star mode
-        ladder.K1 = true;
-        ladder.K2 = true;
-        ladder.K3 = false;
-        // Low torque, low current
+        ladder.K1 = true; ladder.K2 = true; ladder.K3 = false;
         ladder.current = 55 + Math.random() * 5;
         ladder.rpm = (elapsed / ladder.timerSet) * 400 + Math.random() * 10;
       } else {
-        // Delta mode (after timer)
-        ladder.K1 = true;
-        ladder.K2 = false;
-        ladder.K3 = true;
-        // Full torque, full current
+        ladder.K1 = true; ladder.K2 = false; ladder.K3 = true;
         ladder.current = 78 + Math.sin(elapsed) * 3 + Math.random() * 2;
         ladder.rpm = 1450 + Math.sin(elapsed) * 5;
       }
-      
-      // Power and efficiency
       ladder.voltage = 415 + (Math.random() - 0.5) * 3;
       ladder.power = (Math.sqrt(3) * ladder.voltage * ladder.current * 0.86) / 1000;
       ladder.efficiency = 88 + Math.random() * 4;
     } else {
-      // Everything OFF
       ladder.K1 = ladder.K2 = ladder.K3 = false;
       ladder.timer = 0;
       ladder.current = Math.max(0, ladder.current - 5);
@@ -3584,39 +1975,25 @@
       ladder.power = Math.max(0, ladder.power - 2);
       ladder.efficiency = Math.max(0, ladder.efficiency - 3);
     }
-    
     updateLadderUI();
   }
 
-  $('ladStart')?.addEventListener('click', () => {
-    ladder.M = true;
-    ladder.running = true;
-    ladder.startTime = Date.now();
-    ladder.timer = 0;
+  $('ladStart').addEventListener('click', () => {
+    ladder.M = true; ladder.running = true; ladder.startTime = Date.now(); ladder.timer = 0;
     if (ladder.interval) clearInterval(ladder.interval);
     ladder.interval = setInterval(ladderTick, 100);
     updateLadderUI();
   });
-  
-  $('ladStop')?.addEventListener('click', () => {
-    ladder.M = false;
-    ladder.running = false;
+  $('ladStop').addEventListener('click', () => {
+    ladder.M = false; ladder.running = false;
     if (ladder.interval) clearInterval(ladder.interval);
     updateLadderUI();
   });
-  
-  $('ladFwd')?.addEventListener('click', () => {
-    ladder.direction = 'fwd';
-    updateLadderUI();
-  });
-  
-  $('ladRev')?.addEventListener('click', () => {
-    ladder.direction = 'rev';
-    updateLadderUI();
-  });
-
-  // Init ladder UI
+  $('ladFwd').addEventListener('click', () => { ladder.direction = 'fwd'; updateLadderUI(); });
+  $('ladRev').addEventListener('click', () => { ladder.direction = 'rev'; updateLadderUI(); });
   updateLadderUI();
+
+  console.log('%c⚡ Electrical Engineering Lab · By Snow Owl 🦉 · Yasir_Khan', 'color:#facc15;font-size:16px;font-weight:bold;');
 })();
 </script>
 </body>
